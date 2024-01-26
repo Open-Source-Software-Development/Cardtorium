@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhw1nonik7kgl"]
+[gd_scene load_steps=12 format=3 uid="uid://cpjc8y8la6h8n"]
 
-[ext_resource type="Script" path="res://Scenes/local_multiplayer.gd" id="1_pn1qt"]
+[ext_resource type="Script" path="res://Scenes/local_multiplayer.gd" id="1_bskjb"]
+[ext_resource type="Script" path="res://Classes/game.gd" id="1_w8tiu"]
 [ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/forest.png" id="2_5a3g8"]
 [ext_resource type="Texture2D" uid="uid://cx2mc22le2tnq" path="res://Assets/bg.png" id="2_yes3i"]
 [ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/mountain.png" id="3_a8k6f"]
 [ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/water.png" id="4_erujv"]
+[ext_resource type="Script" path="res://Scenes/TerrainRenderer.gd" id="5_y1y25"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd3i8"]
 texture = ExtResource("2_5a3g8")
@@ -1018,17 +1020,26 @@ sources/0 = SubResource("TileSetAtlasSource_vd3i8")
 sources/1 = SubResource("TileSetAtlasSource_2lbnf")
 sources/2 = SubResource("TileSetAtlasSource_imnwa")
 
-[node name="Local_Multiplayer" type="Node2D"]
-script = ExtResource("1_pn1qt")
+[node name="LocalMultiplayer" type="Node2D"]
+script = ExtResource("1_bskjb")
 
-[node name="Terrain" type="TileMap" parent="."]
-z_index = 1
-tile_set = SubResource("TileSet_n8dcm")
-format = 2
+[node name="Game" type="Node" parent="."]
+script = ExtResource("1_w8tiu")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_yes3i")
-offset = Vector2(64, 64)
+centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 128)
+region_filter_clip_enabled = true
+
+[node name="TerrainRenderer" type="TileMap" parent="."]
+z_index = 1
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_n8dcm")
+format = 2
+layer_0/tile_data = PackedInt32Array(65539, 65536, 0, 65538, 0, 0, 131074, 393216, 2, 131073, 0, 0, 196609, 0, 1, 196610, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 0, 131079, 327680, 2, 131078, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196615, 65536, 1, 65543, 131072, 0, 65542, 65536, 0, 65541, 65536, 0, 65540, 65536, 0, 262146, 393216, 1, 262145, 0, 2, 327682, 0, 2, 327683, 65536, 2, 327684, 393216, 1, 393220, 0, 2, 393221, 131072, 2, 327685, 327680, 1, 327686, 65536, 2, 327687, 65536, 2, 327688, 327680, 3, 327689, 131072, 3, 196621, 131074, 0, 262157, 131074, 2, 262156, 65538, 2, 262155, 327682, 1, 327691, 131074, 2, 327690, 2, 2, 262154, 2, 1, 196618, 2, 1, 131082, 2, 0, 131083, 131074, 0, 196619, 327682, 2, 196620, 65538, 0)
+script = ExtResource("5_y1y25")
+
+[connection signal="terrain_updated" from="Game" to="TerrainRenderer" method="render"]

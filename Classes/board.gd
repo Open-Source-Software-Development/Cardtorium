@@ -6,7 +6,7 @@ extends Resource
 class_name Board
 
 ## Defines the terrain types
-enum Tiles {GRASS=-1, FOREST, MOUNTAIN, WATER}
+enum Terrain {GRASS=-1, FOREST, MOUNTAIN, WATER}
 
 ## 2D array which stores the terrain data for each grid
 ## of the board
@@ -39,7 +39,9 @@ var SIZE: Vector2i
 ## Allocates memory for a game with wid by height tiles
 func setup(wid: int, height: int):
     self.SIZE = Vector2i(wid, height)
+    tiles.resize(wid)
     for x in range(wid):
-        tiles.append([])
-        for y in range(height):
-            tiles[x].append(Tiles.GRASS)
+        tiles[x] = []
+        tiles[x].resize(height)
+        tiles[x].fill(Terrain.GRASS)
+
