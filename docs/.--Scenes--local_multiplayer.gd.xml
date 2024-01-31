@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;./Scenes/local_multiplayer.gd&quot;" inherits="Node2D">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

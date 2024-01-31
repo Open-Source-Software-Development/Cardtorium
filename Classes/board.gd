@@ -18,6 +18,9 @@ var tiles: Array = []
 ## claimed by player with that local id.
 var territory: Array = []
 
+## 2D array which stores card locations.
+var units: Array = []
+
 ## The number of players
 var players: int
 
@@ -27,21 +30,29 @@ var player: int
 ## The number of turns taken in the game
 var turns: int
 
-## Array which stores the position of units.
-var units: Array = []
-
 ## Array which stores the position of buildings.
 var buildings: Array = []
 
 ## The size of the board (in tiles) encoded as a vector
 var SIZE: Vector2i
 
-## Allocates memory for a game with wid by height tiles
+## Allocates memory to set up an empty board with wid x height tiles.
 func setup(wid: int, height: int):
+    # Allocates memeory for the tiles. 
     self.SIZE = Vector2i(wid, height)
     tiles.resize(wid)
+    territory.resize(wid)
+    units.resize(wid)
     for x in range(wid):
+        # Sets the tiles
         tiles[x] = []
         tiles[x].resize(height)
         tiles[x].fill(Terrain.GRASS)
-
+        # Sets the territory
+        territory[x] = []
+        territory[x].resize(height)
+        territory[x].fill(-1)
+        # Sets the units array
+        units[x] = []
+        units[x].resize(height)
+        units[x].fill(null)
