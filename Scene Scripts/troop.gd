@@ -8,10 +8,13 @@ var base_movement: int
 var defense: int
 var movement: int
 var id: int = 0
+var attributes = []
 
 var graph
 
 var has_moved: bool = false
+
+@export var data: Card
 
 
 ## Initiallizes the object
