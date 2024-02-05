@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c60o7mx2ylbi1"]
 
 [ext_resource type="Texture2D" uid="uid://cx2mc22le2tnq" path="res://Assets/bg.png" id="1_nytdr"]
-[ext_resource type="Script" path="res://Scenes/Main Menu/main_menu.gd" id="1_u0eqa"]
-[ext_resource type="PackedScene" uid="uid://b2ovy78tg2tow" path="res://Scenes/Options Menu/options_menu.tscn" id="3_c5iwy"]
+[ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_u0eqa"]
+[ext_resource type="PackedScene" uid="uid://b2ovy78tg2tow" path="res://Scenes/Options_Menu/options_menu.tscn" id="3_c5iwy"]
 
 [sub_resource type="SystemFont" id="SystemFont_dogwf"]
 
