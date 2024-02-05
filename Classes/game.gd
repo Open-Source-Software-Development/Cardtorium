@@ -23,7 +23,11 @@ func _ready():
 
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
-	pass
+	match(card.type):
+		Card.CardType.TROOP:
+			var	troop = Troop.new(card)
+			board.units[x][y] = troop
+			troop_placed.emit(Vector2i(x, y), troop.id)
 
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw

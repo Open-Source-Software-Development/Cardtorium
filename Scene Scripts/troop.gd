@@ -7,10 +7,31 @@ var base_defense: int
 var base_movement: int
 var defense: int
 var movement: int
+var id: int = 0
 
 var graph
 
 var has_moved: bool = false
+
+
+## Initiallizes the object
+func _init(card: Card):
+	self.id = card.id
+	base_attack = card.attack
+	base_movement = card.movement
+	base_defense = card.defense
+	base_rng = card.attack_range
+	base_health = card.health
+
+
+## Loads resources when added to the scene tree
+func _ready():
+	print_debug("hi")
+	var sprite = $Sprite
+	var texture: Texture2D = load("res://Assets/Troop Sprites/troop_{0}.png".format({0: id}))
+	if texture != null:
+		sprite.texture = texture
+
 
 ## Builds a graph of the tiles that the unit can move to.
 func build_graph(x: int, y: int, board: Board):

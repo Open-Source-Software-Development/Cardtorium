@@ -12,7 +12,11 @@ var type: CardType
 ## The attributes of the card.
 var attributes = {}
 
+## The card's ID
+var id: int
+
 var attack: int
 var defense: int
 var attack_range: int
 var movement: int
+var health: int
