@@ -29,7 +29,6 @@ func _init(card: Card):
 
 ## Loads resources when added to the scene tree
 func _ready():
-	print_debug("hi")
 	var sprite = $Sprite
 	var texture: Texture2D = load("res://Assets/Troop Sprites/troop_{0}.png".format({0: id}))
 	if texture != null:
