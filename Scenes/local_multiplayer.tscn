@@ -1060,3 +1060,4 @@ script = ExtResource("9_skgro")
 game = NodePath("../../Game")
 
 [connection signal="terrain_updated" from="Game" to="TerrainRenderer" method="render"]
+[connection signal="troop_placed" from="Game" to="." method="render_troop"]

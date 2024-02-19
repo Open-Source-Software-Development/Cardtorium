@@ -11,7 +11,7 @@ var board: Board = Board.new()
 ## Notifies other nodes when a set of terrain tiles is changed.
 signal terrain_updated(changed: Array[Vector2i], terrain: Board.Terrain)
 ## Emitted when a troop is placed.
-signal troop_placed(position: Vector2i, index: int)
+signal troop_placed(troop: Troop, pos: Vector2i)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,14 +20,18 @@ func _ready():
 	var width = 50
 	var height = 50
 	board.setup(width, height)
+	var card: Card = load("res://Cards/Troops/troop_1.tres")
+	place_card(card, 2, 2)
+	place_card(card, 4, 7)
 
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
 	match(card.type):
+		# Places a troop card
 		Card.CardType.TROOP:
-			var	troop = Troop.new(card)
+			var troop: Troop = Troop.new(card)
 			board.units[x][y] = troop
-			troop_placed.emit(Vector2i(x, y), troop.id)
+			troop_placed.emit(troop, Vector2i(x, y))
 
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw
