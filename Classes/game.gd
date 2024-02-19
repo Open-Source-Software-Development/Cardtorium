@@ -20,9 +20,8 @@ func _ready():
 	var width = 50
 	var height = 50
 	board.setup(width, height)
-	var card: Card = load("res://Cards/Troops/troop_1.tres")
-	place_card(card, 2, 2)
-	place_card(card, 4, 7)
+
+
 
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
@@ -32,6 +31,8 @@ func place_card(card: Card, x: int, y: int):
 			var troop: Troop = Troop.new(card)
 			board.units[x][y] = troop
 			troop_placed.emit(troop, Vector2i(x, y))
+
+
 
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw

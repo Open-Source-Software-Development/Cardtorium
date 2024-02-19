@@ -4,7 +4,6 @@ var troop_scene = preload("res://Scenes/rendered_troop.tscn")
 const TILE_SIZE = 64
 @onready var game: Game = $Game
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Renders the background

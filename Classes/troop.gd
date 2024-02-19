@@ -20,6 +20,7 @@ func build_graph(x: int, y: int, board: Board):
 	pass
 
 
+
 ## After a graph has been built, used to build a path from
 ## the troop's starting position to the end position. This
 ## is used to animate the troop's movement.
