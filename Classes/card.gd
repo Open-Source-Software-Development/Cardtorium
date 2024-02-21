@@ -7,12 +7,24 @@ class_name Card
 enum CardType {TROOP, BUILDING, SPELL}
 
 ## The type of card that this object represents.
+@export
 var type: CardType
 
 ## The attributes of the card.
-var attributes = {}
+@export
+var attributes = []
 
+## The card's ID
+@export
+var id: int
+
+@export
+var health: int
+@export
 var attack: int
+@export
 var defense: int
+@export
 var attack_range: int
+@export
 var movement: int
