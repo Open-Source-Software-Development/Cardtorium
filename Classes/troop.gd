@@ -3,18 +3,22 @@ extends Unit
 ## Class which represents a troop on the board.
 class_name Troop
 
-var base_defense: int
-var base_movement: int
-var defense: int
-var movement: int
-
+var id: int = 0
 var graph
-
 var has_moved: bool = false
+var base_stats: Card
+
+
+func _init(card: Card = null):
+	self.id = card.id
+	self.base_stats = card
+
+
 
 ## Builds a graph of the tiles that the unit can move to.
 func build_graph(x: int, y: int, board: Board):
 	pass
+
 
 
 ## After a graph has been built, used to build a path from

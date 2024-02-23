@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://2vgmj4rrek3b"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_tnfyf"]
+
+[resource]
+script = ExtResource("1_tnfyf")
+type = 0
+attributes = [0, 1]
+id = 1
+health = 10
+attack = 2
+defense = 1
+attack_range = 1
+movement = 3
