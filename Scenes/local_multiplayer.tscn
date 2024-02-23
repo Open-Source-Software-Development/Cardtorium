@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://Scenes/local_multiplayer.gd" id="1_bskjb"]
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_w8tiu"]
-[ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/forest.png" id="2_5a3g8"]
-[ext_resource type="Texture2D" uid="uid://cx2mc22le2tnq" path="res://Assets/bg.png" id="2_yes3i"]
-[ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/mountain.png" id="3_a8k6f"]
-[ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/water.png" id="4_erujv"]
+[ext_resource type="Texture2D" uid="uid://cx2mc22le2tnq" path="res://Assets/Backgrounds/bg.png" id="3_k1awg"]
+[ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/Tiles/forest.png" id="4_gaolm"]
+[ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/Tiles/mountain.png" id="5_6bbr8"]
 [ext_resource type="Script" path="res://Scenes/TerrainRenderer.gd" id="5_y1y25"]
+[ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/Tiles/water.png" id="6_5dn4f"]
 [ext_resource type="Script" path="res://Scenes/camera.gd" id="8_ttfsi"]
 [ext_resource type="Script" path="res://Scenes/UI.gd" id="9_skgro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd3i8"]
-texture = ExtResource("2_5a3g8")
+texture = ExtResource("4_gaolm")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -344,7 +344,7 @@ texture_region_size = Vector2i(32, 32)
 6:3/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lbnf"]
-texture = ExtResource("3_a8k6f")
+texture = ExtResource("5_6bbr8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -677,7 +677,7 @@ texture_region_size = Vector2i(32, 32)
 8:4/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imnwa"]
-texture = ExtResource("4_erujv")
+texture = ExtResource("6_5dn4f")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1030,7 +1030,7 @@ script = ExtResource("1_w8tiu")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_yes3i")
+texture = ExtResource("3_k1awg")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 128)

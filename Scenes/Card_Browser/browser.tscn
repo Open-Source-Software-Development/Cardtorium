@@ -1,0 +1,312 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyww70acxl6fy"]
+
+[ext_resource type="Theme" uid="uid://bqfaxmf00poqw" path="res://Themes/back_button.tres" id="1_52g2n"]
+[ext_resource type="Script" path="res://Scenes/Card_Browser/browser.gd" id="1_g3s2r"]
+[ext_resource type="Texture2D" uid="uid://dcj4qsek6otcm" path="res://Assets/UI/Screen Shot 2024-02-14 at 7.12.29 PM (2).png" id="2_2c6w7"]
+
+[node name="Browser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3s2r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 32
+text = "BROWSE"
+horizontal_alignment = 1
+
+[node name="Searchbar" type="LineEdit" parent="."]
+layout_mode = 2
+offset_left = 288.0
+offset_top = 95.0
+offset_right = 870.0
+offset_bottom = 126.0
+placeholder_text = "SEARCH"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -538.0
+offset_top = -188.0
+offset_right = 537.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.447059)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 145.0
+offset_right = 1112.0
+offset_bottom = 536.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Items" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="ScrollContainer/VBoxContainer/Items/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("2_2c6w7")
+stretch_mode = 4
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 23.0
+offset_right = 88.0
+offset_bottom = 75.0
+theme = ExtResource("1_52g2n")
+
+[node name="Deck_1" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -527.0
+offset_top = -92.0
+offset_right = -241.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Deck 1"
+
+[node name="Deck_2" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -90.0
+offset_right = 143.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Deck 2
+"
+
+[node name="Deck_3" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 229.0
+offset_top = -90.0
+offset_right = 515.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Deck 3
+"
