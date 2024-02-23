@@ -9,7 +9,7 @@ func _ready():
 	# Renders the background
 	var board: Board = game.board
 	var background: Sprite2D = $Background
-	background.region_rect.size = 32 * Vector2(board.SIZE.x, board.SIZE.y)
+	background.region_rect.size = TILE_SIZE * Vector2(board.SIZE.x, board.SIZE.y)
 	# Renders the tiles
 	var terrain: TileMap = $TerrainRenderer
 	terrain.board = board

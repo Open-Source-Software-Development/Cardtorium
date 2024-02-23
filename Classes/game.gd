@@ -8,6 +8,9 @@ class_name Game
 ## saving and loading games.
 var board: Board = Board.new()
 
+## Number of players
+var num_players: int
+
 ## Notifies other nodes when a set of terrain tiles is changed.
 signal terrain_updated(changed: Array[Vector2i], terrain: Board.Terrain)
 ## Emitted when a troop is placed.
@@ -16,10 +19,11 @@ signal troop_placed(troop: Troop, pos: Vector2i)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	board = Board.new()
-	# Creates a new board of size 50 x 50
-	var width = 50
-	var height = 50
-	board.setup(width, height)
+	# Creates a new board of size 11 x 11
+	var width = 11
+	var height = 11
+	board.setup(width, height, 2)
+	num_players = 2
 
 
 

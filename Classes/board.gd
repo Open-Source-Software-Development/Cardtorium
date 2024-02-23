@@ -21,11 +21,11 @@ var territory: Array = []
 ## 2D array which stores card locations.
 var units: Array = []
 
-## The number of players
-var players: int
+## Stores the players of the game
+var players: Array[Player]
 
 ## Which player is currently taking their turn
-var player: int
+var current_player: int
 
 ## The number of turns taken in the game
 var turns: int
@@ -37,7 +37,7 @@ var buildings: Array = []
 var SIZE: Vector2i
 
 ## Allocates memory to set up an empty board with wid x height tiles.
-func setup(wid: int, height: int):
+func setup(wid: int, height: int, _num_players: int):
     # Allocates memeory for the tiles. 
     self.SIZE = Vector2i(wid, height)
     tiles.resize(wid)
@@ -56,3 +56,7 @@ func setup(wid: int, height: int):
         units[x] = []
         units[x].resize(height)
         units[x].fill(null)
+    players = []
+    # TODO: Replace code below, and actually use the `num_players` variable
+    players.append(Player.new(SIZE, Vector2i(0,SIZE.y / 2)))
+    players.append(Player.new(SIZE, Vector2i(SIZE.x - 1,SIZE.y / 2)))
