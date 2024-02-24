@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c60o7mx2ylbi1"]
+[gd_scene load_steps=15 format=3 uid="uid://c60o7mx2ylbi1"]
 
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_u0eqa"]
 [ext_resource type="PackedScene" uid="uid://uqkos0hq4eiv" path="res://Scenes/Bgs/Bg_Plains.tscn" id="2_ppdu0"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3y36easa8h6" path="res://Scenes/Bgs/Bg_Beach.tscn" id="6_686cm"]
 [ext_resource type="Texture2D" uid="uid://cyjgm13ugdnuc" path="res://Assets/UI/cardtorium_logo (3).png" id="6_ovt8p"]
 [ext_resource type="Texture2D" uid="uid://ba1h4amsm5lv6" path="res://Assets/UI/cardtorium_logo (4).png" id="7_r6af2"]
+[ext_resource type="AudioStream" uid="uid://dnb4ntkuo3vxt" path="res://Assets/Music/placeholder1.mp3" id="14_wiedd"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -135,3 +136,8 @@ layout_mode = 1
 [node name="Browser" parent="." instance=ExtResource("5_n02jy")]
 visible = false
 layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_wiedd")
+autoplay = true
+bus = &"Music"
