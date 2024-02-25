@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3y36easa8h6"]
+
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Beach.gd" id="1_4vixg"]
+[ext_resource type="Texture2D" uid="uid://fi2aje4vtppi" path="res://Assets/Backgrounds/beach_ground_p2.png" id="2_4wpqf"]
+[ext_resource type="Texture2D" uid="uid://bhgkreuslujlt" path="res://Assets/Backgrounds/beach_ground_p.png" id="2_rl07p"]
+[ext_resource type="Texture2D" uid="uid://dgnb2rr2lwgql" path="res://Assets/Backgrounds/beach_ground_bg.png" id="2_xqavk"]
+[ext_resource type="Texture2D" uid="uid://ceuaasc7hkw3e" path="res://Assets/Backgrounds/beach_ground_floor.png" id="3_rvj54"]
+
+[node name="BgBeach" type="ParallaxBackground"]
+script = ExtResource("1_4vixg")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(575, 326)
+texture = ExtResource("2_xqavk")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1152, 2.08165e-12)
+
+[node name="Birds" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(574, 326)
+texture = ExtResource("2_4wpqf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 2.08165e-12)
+
+[node name="Tree" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(575, 326)
+texture = ExtResource("2_rl07p")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(576, 326)
+texture = ExtResource("3_rvj54")
