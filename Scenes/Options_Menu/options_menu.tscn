@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2ovy78tg2tow"]
 
 [ext_resource type="Script" path="res://Scenes/Options_Menu/options_menu.gd" id="1_eej6f"]
-[ext_resource type="Theme" uid="uid://bqfaxmf00poqw" path="res://Themes/back_button.tres" id="2_xmbgm"]
-[ext_resource type="PackedScene" uid="uid://dhjvpt62br1qx" path="res://Scenes/Options_Menu/window_mode_button.tscn" id="3_8inbf"]
-[ext_resource type="PackedScene" uid="uid://ma1k6jr8k2eo" path="res://Scenes/Options_Menu/audio_slider_settings.tscn" id="3_kblv3"]
-[ext_resource type="PackedScene" uid="uid://u7tgtmeip2b2" path="res://Scenes/Options_Menu/resolution_mode_button.tscn" id="4_wgi2d"]
+[ext_resource type="Theme" uid="uid://btmcuk32okl2u" path="res://Themes/Back.tres" id="2_rsybr"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/window_mode_button.tscn" id="3_8inbf"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/audio_slider_settings.tscn" id="3_kblv3"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/resolution_mode_button.tscn" id="4_wgi2d"]
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3
@@ -46,14 +46,6 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 2
-offset_left = 16.0
-offset_top = 23.0
-offset_right = 109.0
-offset_bottom = 89.0
-theme = ExtResource("2_xmbgm")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -101,6 +93,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -138,6 +131,7 @@ layout_mode = 2
 bus_name = "Sfx"
 
 [node name="Control" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Control"]
@@ -217,3 +211,11 @@ text = "Sound 1"
 [node name="Label5" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sound 1"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 23.0
+offset_right = 88.0
+offset_bottom = 75.0
+theme = ExtResource("2_rsybr")

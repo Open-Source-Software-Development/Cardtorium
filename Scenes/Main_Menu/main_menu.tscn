@@ -140,4 +140,3 @@ layout_mode = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_wiedd")
 autoplay = true
-bus = &"Music"
