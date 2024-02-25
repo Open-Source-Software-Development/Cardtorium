@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/Options_Menu/options_menu.gd" id="1_eej6f"]
 [ext_resource type="Theme" uid="uid://bqfaxmf00poqw" path="res://Themes/back_button.tres" id="2_xmbgm"]
-[ext_resource type="PackedScene" uid="uid://dhjvpt62br1qx" path="res://Scenes/Options_Menu/window_mode_button.tscn" id="3_8inbf"]
-[ext_resource type="PackedScene" uid="uid://ma1k6jr8k2eo" path="res://Scenes/Options_Menu/audio_slider_settings.tscn" id="3_kblv3"]
-[ext_resource type="PackedScene" uid="uid://u7tgtmeip2b2" path="res://Scenes/Options_Menu/resolution_mode_button.tscn" id="4_wgi2d"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/window_mode_button.tscn" id="3_8inbf"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/audio_slider_settings.tscn" id="3_kblv3"]
+[ext_resource type="PackedScene" path="res://Scenes/Options_Menu/resolution_mode_button.tscn" id="4_wgi2d"]
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3
@@ -101,6 +101,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -138,6 +139,7 @@ layout_mode = 2
 bus_name = "Sfx"
 
 [node name="Control" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Control"]
