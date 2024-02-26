@@ -1,13 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcqe4apsl7kcw"]
+[gd_scene load_steps=18 format=3 uid="uid://dcqe4apsl7kcw"]
 
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_scroll.gd" id="1_65uoy"]
 [ext_resource type="Texture2D" uid="uid://cls8l6opvgjnd" path="res://Assets/Backgrounds/forest_ground_bg.png" id="1_f3at5"]
-[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Forest.gd" id="1_mlj0v"]
 [ext_resource type="Texture2D" uid="uid://7vsd0futefgt" path="res://Assets/Backgrounds/forest_ground_floor.png" id="2_80604"]
 [ext_resource type="Texture2D" uid="uid://hou400wkubge" path="res://Assets/Backgrounds/forest_ground_p.png" id="2_c46j6"]
 [ext_resource type="Texture2D" uid="uid://cheis7dvbgsue" path="res://Assets/Backgrounds/forest_ground_p2.png" id="2_d88t8"]
+[ext_resource type="Texture2D" uid="uid://dmj5twip4e0oc" path="res://Assets/Characters/warrior.png" id="6_g8ehi"]
+[ext_resource type="Texture2D" uid="uid://bq4ja785mygtq" path="res://Assets/Characters/knight.png" id="7_gstnj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30i3t"]
+atlas = ExtResource("6_g8ehi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_expg0"]
+atlas = ExtResource("6_g8ehi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4a8v"]
+atlas = ExtResource("6_g8ehi")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yijjj"]
+atlas = ExtResource("6_g8ehi")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y67j7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30i3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_expg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4a8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yijjj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k10et"]
+atlas = ExtResource("7_gstnj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfnwa"]
+atlas = ExtResource("7_gstnj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bati7"]
+atlas = ExtResource("7_gstnj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyk51"]
+atlas = ExtResource("7_gstnj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bdjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k10et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfnwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bati7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyk51")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="BgForest" type="ParallaxBackground"]
-script = ExtResource("1_mlj0v")
+script = ExtResource("1_65uoy")
 
 [node name="Forest_Bg" type="Sprite2D" parent="."]
 position = Vector2(575, 323)
@@ -31,3 +105,17 @@ texture = ExtResource("2_c46j6")
 [node name="Forest-Floor" type="Sprite2D" parent="."]
 position = Vector2(576, 322)
 texture = ExtResource("2_80604")
+
+[node name="Sprite1" type="AnimatedSprite2D" parent="."]
+position = Vector2(201, 414)
+scale = Vector2(4.89062, 4.32813)
+sprite_frames = SubResource("SpriteFrames_y67j7")
+animation = &"walk"
+flip_h = true
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(297, 402)
+scale = Vector2(5.97656, 4.78125)
+sprite_frames = SubResource("SpriteFrames_7bdjr")
+animation = &"walk"
+flip_h = true
