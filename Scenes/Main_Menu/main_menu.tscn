@@ -1,10 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://c60o7mx2ylbi1"]
+[gd_scene load_steps=15 format=3 uid="uid://c60o7mx2ylbi1"]
 
-[ext_resource type="Texture2D" uid="uid://cx2mc22le2tnq" path="res://Assets/bg.png" id="1_nytdr"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_u0eqa"]
+[ext_resource type="PackedScene" uid="uid://uqkos0hq4eiv" path="res://Scenes/Bgs/Bg_Plains.tscn" id="2_ppdu0"]
+[ext_resource type="PackedScene" uid="uid://dcqe4apsl7kcw" path="res://Scenes/Bgs/Bg_Forest.tscn" id="3_bm2gd"]
 [ext_resource type="PackedScene" uid="uid://b2ovy78tg2tow" path="res://Scenes/Options_Menu/options_menu.tscn" id="3_c5iwy"]
-
-[sub_resource type="SystemFont" id="SystemFont_dogwf"]
+[ext_resource type="Texture2D" uid="uid://jf5iyir1y64v" path="res://Assets/UI/cardtorium_logo.png" id="3_ogsdy"]
+[ext_resource type="Texture2D" uid="uid://caa8vqejfx0c5" path="res://Assets/UI/cardtorium_logo (1).png" id="4_ma6ga"]
+[ext_resource type="PackedScene" uid="uid://cc2dk3xqn46m0" path="res://Scenes/Bgs/Bg_Fire.tscn" id="4_rhvpi"]
+[ext_resource type="PackedScene" uid="uid://cxncvsh5owco1" path="res://Scenes/Bgs/Bg_Mountain.tscn" id="5_6rg4k"]
+[ext_resource type="Texture2D" uid="uid://bgqi23587tdrf" path="res://Assets/UI/cardtorium_logo (2).png" id="5_144r0"]
+[ext_resource type="PackedScene" uid="uid://cyww70acxl6fy" path="res://Scenes/Card_Browser/browser.tscn" id="5_n02jy"]
+[ext_resource type="PackedScene" uid="uid://b3y36easa8h6" path="res://Scenes/Bgs/Bg_Beach.tscn" id="6_686cm"]
+[ext_resource type="Texture2D" uid="uid://cyjgm13ugdnuc" path="res://Assets/UI/cardtorium_logo (3).png" id="6_ovt8p"]
+[ext_resource type="Texture2D" uid="uid://ba1h4amsm5lv6" path="res://Assets/UI/cardtorium_logo (4).png" id="7_r6af2"]
+[ext_resource type="AudioStream" uid="uid://dnb4ntkuo3vxt" path="res://Assets/Music/placeholder1.mp3" id="14_wiedd"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -15,14 +24,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u0eqa")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_nytdr")
+[node name="BgPlains" parent="." instance=ExtResource("2_ppdu0")]
+visible = false
+
+[node name="BgForest" parent="." instance=ExtResource("3_bm2gd")]
+visible = false
+
+[node name="BgFire" parent="." instance=ExtResource("4_rhvpi")]
+visible = false
+
+[node name="BgMountain" parent="." instance=ExtResource("5_6rg4k")]
+visible = false
+
+[node name="BgBeach" parent="." instance=ExtResource("6_686cm")]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,20 +53,35 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 0
 
 [node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Title1" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = SubResource("SystemFont_dogwf")
-theme_override_font_sizes/font_size = 64
-text = "CARDTORIUM"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("3_ogsdy")
+
+[node name="Title2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_ma6ga")
+
+[node name="Title3" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_144r0")
+
+[node name="Title4" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_ovt8p")
+
+[node name="Title5" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_r6af2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -70,6 +100,16 @@ custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Start"
+
+[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Deck_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Deck
+"
 
 [node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -92,3 +132,11 @@ text = "Quit"
 [node name="Options_Menu" parent="." instance=ExtResource("3_c5iwy")]
 visible = false
 layout_mode = 1
+
+[node name="Browser" parent="." instance=ExtResource("5_n02jy")]
+visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_wiedd")
+autoplay = true

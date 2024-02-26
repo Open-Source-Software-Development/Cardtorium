@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc2dk3xqn46m0"]
+
+[ext_resource type="Texture2D" uid="uid://b1od1c7fucfrr" path="res://Assets/Backgrounds/fire_ground_bg.png" id="1_5w771"]
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Fire.gd" id="1_54y76"]
+[ext_resource type="Texture2D" uid="uid://8vibjri717qb" path="res://Assets/Backgrounds/fire_ground_floor.png" id="2_f4hd8"]
+[ext_resource type="Texture2D" uid="uid://c2bybj20pi3b5" path="res://Assets/Backgrounds/fire_ground_p2.png" id="2_miku7"]
+[ext_resource type="Texture2D" uid="uid://bmvp8xrwh2hle" path="res://Assets/Backgrounds/fire_ground_p.png" id="3_5v103"]
+
+[node name="BgFire" type="ParallaxBackground"]
+script = ExtResource("1_54y76")
+
+[node name="Fire_Bg" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+texture = ExtResource("1_5w771")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 2.08165e-12)
+
+[node name="Volcano" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(578, 325)
+texture = ExtResource("2_miku7")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 2.08165e-12)
+
+[node name="Fire" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(575, 328)
+texture = ExtResource("3_5v103")
+
+[node name="Fire_Floor" type="Sprite2D" parent="."]
+position = Vector2(576, 329)
+texture = ExtResource("2_f4hd8")
