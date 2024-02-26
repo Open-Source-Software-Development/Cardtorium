@@ -28,7 +28,6 @@ func _ready():
 	num_players = 2
 
 
-
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
 	match(card.type):

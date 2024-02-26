@@ -5,8 +5,10 @@
 [resource]
 script = ExtResource("1_tnfyf")
 type = 0
+rarity = 1
 attributes = [0, 1]
 id = 1
+name = "Light Cavalry"
 health = 10
 attack = 2
 defense = 1
