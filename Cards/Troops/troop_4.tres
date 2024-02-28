@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://s3xpjwyjvd4i"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_sgj0o"]
+
+[resource]
+script = ExtResource("1_sgj0o")
+type = 0
+rarity = 1
+name = "Imperial Scout"
+id = 4
+health = 10
+attack = 3
+defense = 1
+attack_range = 2
+movement = 2
+cost = 3
+attributes = [null, null, null]

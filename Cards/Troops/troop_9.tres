@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b550pix6mxk6u"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_fd0dh"]
+
+[resource]
+script = ExtResource("1_fd0dh")
+type = 0
+id = 9
+name = "Guard"
+rarity = 2
+health = 15
+attack = 2
+defense = 13
+attack_range = 1
+movement = 1
+cost = 8
+attributes = [null]

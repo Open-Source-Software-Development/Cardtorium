@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://020bpkrns4vl"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_7y5jc"]
+
+[resource]
+script = ExtResource("1_7y5jc")
+type = 0
+id = 19
+name = "Armored Warrior"
+rarity = 2
+health = 15
+attack = 8
+defense = 7
+attack_range = 1
+movement = 1
+cost = 5
+attributes = [null]

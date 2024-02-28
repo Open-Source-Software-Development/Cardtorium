@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dcrbdr4oi4a12"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_d3f7v"]
+
+[resource]
+script = ExtResource("1_d3f7v")
+type = 0
+id = 22
+name = "Imperial High Mage"
+rarity = 3
+health = 15
+attack = 15
+defense = 5
+attack_range = 3
+movement = 1
+cost = 14
+attributes = [null, null]

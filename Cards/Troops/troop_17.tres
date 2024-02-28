@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dde3t0ovc55j5"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_vy0mw"]
+
+[resource]
+script = ExtResource("1_vy0mw")
+type = 0
+id = 17
+name = "Frontierman"
+rarity = 1
+health = 10
+attack = 1
+defense = 1
+attack_range = 1
+movement = 2
+cost = 3
+attributes = [null]
