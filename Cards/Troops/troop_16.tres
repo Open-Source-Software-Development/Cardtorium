@@ -14,4 +14,4 @@ defense = 22
 attack_range = 3
 movement = 1
 cost = 24
-attributes = [null, null]
+attributes = [15, 16]
