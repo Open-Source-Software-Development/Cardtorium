@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dy1put32h2g5g"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_badsf"]
+
+[resource]
+script = ExtResource("1_badsf")
+type = 0
+rarity = 3
+name = "Knight"
+id = 3
+health = 20
+attack = 10
+defense = 10
+attack_range = 1
+movement = 1
+cost = 11
+attributes = [null, null]

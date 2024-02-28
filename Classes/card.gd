@@ -10,13 +10,14 @@ enum CardType {TROOP, BUILDING, SPELL}
 @export
 var type: CardType
 
-## The attributes of the card.
-@export
-var attributes = []
-
 ## The card's ID
 @export
 var id: int
+@export 
+var name: String
+## Range is 1-5
+@export
+var rarity: int
 
 @export
 var health: int
@@ -28,3 +29,8 @@ var defense: int
 var attack_range: int
 @export
 var movement: int
+@export
+var cost: int
+## The attributes of the card.
+@export
+var attributes = []

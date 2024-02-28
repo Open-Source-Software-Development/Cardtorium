@@ -5,10 +5,13 @@
 [resource]
 script = ExtResource("1_tw1h2")
 type = 0
-attributes = []
+attributes = [null, null]
 id = 0
+name = "Imperial Warrior"
 health = 10
-attack = 2
-defense = 2
+attack = 5
+defense = 5
 attack_range = 1
 movement = 1
+cost = 2
+rarity = 2

@@ -1,8 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6jcofumarup2"]
+[gd_scene load_steps=4 format=3 uid="uid://c6jcofumarup2"]
 
 [ext_resource type="Script" path="res://Card Creation.gd" id="1_spk5u"]
-[ext_resource type="Resource" uid="uid://2vgmj4rrek3b" path="res://Cards/Troops/troop_1.tres" id="2_jfjmy"]
+[ext_resource type="Script" path="res://Classes/card.gd" id="2_hgkto"]
+
+[sub_resource type="Resource" id="Resource_rgcbj"]
+script = ExtResource("2_hgkto")
+type = 0
+id = 5
+name = "Spy"
+rarity = 3
+health = 0
+attack = 0
+defense = 0
+attack_range = 0
+movement = 0
+cost = 0
+attributes = []
 
 [node name="Card Creation" type="Node"]
 script = ExtResource("1_spk5u")
-card = ExtResource("2_jfjmy")
+card = SubResource("Resource_rgcbj")
