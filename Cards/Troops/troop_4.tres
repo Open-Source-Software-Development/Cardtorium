@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_sgj0o")
 type = 0
-rarity = 1
-name = "Imperial Scout"
 id = 4
+name = "Imperial Scout"
+rarity = 0
 health = 10
 attack = 3
 defense = 1

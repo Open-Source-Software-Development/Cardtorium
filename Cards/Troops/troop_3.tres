@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_badsf")
 type = 0
-rarity = 3
-name = "Knight"
 id = 3
+name = "Knight"
+rarity = 2
 health = 20
 attack = 10
 defense = 10
