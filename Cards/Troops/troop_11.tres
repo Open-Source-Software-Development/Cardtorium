@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bc7vpiuvy6tby"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_mosj2"]
+
+[resource]
+script = ExtResource("1_mosj2")
+type = 0
+id = 11
+name = "Imperial Medic"
+rarity = 1
+health = 15
+attack = 1
+defense = 5
+attack_range = 1
+movement = 1
+cost = 7
+attributes = [7, 16]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c2rid3uhlh5ps"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_pn8ok"]
+
+[resource]
+script = ExtResource("1_pn8ok")
+type = 0
+id = 15
+name = "Imperial Mage"
+rarity = 1
+health = 15
+attack = 9
+defense = 4
+attack_range = 3
+movement = 1
+cost = 7
+attributes = [3]

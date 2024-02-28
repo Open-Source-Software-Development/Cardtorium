@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bhwccojacepy0"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_60mvk"]
+
+[resource]
+script = ExtResource("1_60mvk")
+type = 0
+id = 24
+name = "Clypeus"
+rarity = 2
+health = 20
+attack = 2
+defense = 18
+attack_range = 1
+movement = 1
+cost = 12
+attributes = [2]

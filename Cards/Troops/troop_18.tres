@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cl32hq04506tt"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_kymvg"]
+
+[resource]
+script = ExtResource("1_kymvg")
+type = 0
+id = 18
+name = "Imperial Crossbowman"
+rarity = 1
+health = 15
+attack = 7
+defense = 8
+attack_range = 2
+movement = 1
+cost = 6
+attributes = [0, 3]
