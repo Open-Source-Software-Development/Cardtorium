@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://cpjc8y8la6h8n"]
 
-[ext_resource type="Script" path="res://Scene Scripts/local_multiplayer.gd" id="1_hopg0"]
-[ext_resource type="Script" path="res://Classes/game.gd" id="1_w8tiu"]
-[ext_resource type="Texture2D" uid="uid://c7gpfvd3321bj" path="res://Assets/Tiles/background.png" id="3_klftv"]
-[ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/Tiles/forest.png" id="4_gaolm"]
-[ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/Tiles/mountain.png" id="5_6bbr8"]
-[ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/Tiles/water.png" id="6_5dn4f"]
-[ext_resource type="Script" path="res://Scene Scripts/TerrainRenderer.gd" id="7_edyan"]
-[ext_resource type="Script" path="res://Scene Scripts/camera.gd" id="8_rdt61"]
-[ext_resource type="Script" path="res://Scene Scripts/UI.gd" id="9_3ka7m"]
-[ext_resource type="Texture2D" uid="uid://b41gbib33us0y" path="res://Assets/Tiles/fog.png" id="10_g6gxg"]
-[ext_resource type="Script" path="res://Scenes/FogRenderer.gd" id="11_r7v5e"]
+[ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
+[ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
+[ext_resource type="Texture2D" uid="uid://c7gpfvd3321bj" path="res://Assets/Tiles/background.png" id="2_smxou"]
+[ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/Tiles/forest.png" id="3_2ac0w"]
+[ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/Tiles/mountain.png" id="4_lxt31"]
+[ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/Tiles/water.png" id="5_5trbo"]
+[ext_resource type="Script" path="res://Scenes/Local_Multiplayer/TerrainRenderer.gd" id="7_fqdo8"]
+[ext_resource type="Texture2D" uid="uid://b41gbib33us0y" path="res://Assets/Tiles/fog.png" id="7_gkb7q"]
+[ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
+[ext_resource type="Script" path="res://Scenes/Local_Multiplayer/UI.gd" id="9_08uqy"]
+[ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd3i8"]
-texture = ExtResource("4_gaolm")
+texture = ExtResource("3_2ac0w")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -346,7 +346,7 @@ texture_region_size = Vector2i(32, 32)
 6:3/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lbnf"]
-texture = ExtResource("5_6bbr8")
+texture = ExtResource("4_lxt31")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -679,7 +679,7 @@ texture_region_size = Vector2i(32, 32)
 8:4/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imnwa"]
-texture = ExtResource("6_5dn4f")
+texture = ExtResource("5_5trbo")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1025,7 +1025,7 @@ sources/1 = SubResource("TileSetAtlasSource_2lbnf")
 sources/2 = SubResource("TileSetAtlasSource_imnwa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2ia"]
-texture = ExtResource("10_g6gxg")
+texture = ExtResource("7_gkb7q")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1369,13 +1369,13 @@ terrain_set_0/terrain_0/color = Color(0.709804, 0, 0.301961, 1)
 sources/0 = SubResource("TileSetAtlasSource_hh2ia")
 
 [node name="LocalMultiplayer" type="Node2D"]
-script = ExtResource("1_hopg0")
+script = ExtResource("1_w84yu")
 
 [node name="Game" type="Node" parent="."]
-script = ExtResource("1_w8tiu")
+script = ExtResource("1_cv5ps")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("3_klftv")
+texture = ExtResource("2_smxou")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 128)
@@ -1387,12 +1387,12 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_n8dcm")
 format = 2
 layer_0/tile_data = PackedInt32Array(65539, 65536, 0, 65538, 0, 0, 131074, 393216, 2, 131073, 0, 0, 196609, 0, 1, 196610, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 0, 131079, 327680, 2, 131078, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196615, 65536, 1, 65543, 131072, 0, 65542, 65536, 0, 65541, 65536, 0, 65540, 65536, 0, 262146, 393216, 1, 262145, 0, 2, 327682, 0, 2, 327683, 65536, 2, 327684, 393216, 1, 393220, 0, 2, 393221, 131072, 2, 327685, 327680, 1, 327686, 65536, 2, 327687, 65536, 2, 327688, 327680, 3, 327689, 131072, 3, 196621, 131074, 0, 262157, 131074, 2, 262156, 65538, 2, 262155, 327682, 1, 327691, 131074, 2, 327690, 2, 2, 262154, 2, 1, 196618, 2, 1, 131082, 2, 0, 131083, 131074, 0, 196619, 327682, 2, 196620, 65538, 0)
-script = ExtResource("7_edyan")
+script = ExtResource("7_fqdo8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 position_smoothing_enabled = true
-script = ExtResource("8_rdt61")
+script = ExtResource("8_gitxl")
 
 [node name="GUI_Renderer" type="CanvasLayer" parent="."]
 
@@ -1401,12 +1401,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 650.0
-script = ExtResource("9_3ka7m")
+script = ExtResource("9_08uqy")
 
 [node name="FogRenderer" type="TileMap" parent="."]
 z_index = 10
 tile_set = SubResource("TileSet_ael6n")
 format = 2
-script = ExtResource("11_r7v5e")
+script = ExtResource("11_i2gk8")
 
 [connection signal="terrain_updated" from="Game" to="TerrainRenderer" method="render"]
+[connection signal="troop_placed" from="Game" to="." method="render_troop"]
