@@ -6,11 +6,12 @@ class_name Card
 ## The different types of cards
 enum CardType {TROOP, BUILDING, SPELL}
 
-## The different rarities of cards
+## The different card rarities
 enum CardRarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 
 ## The type of card that this object represents.
 @export var type: CardType
+
 ## The card's ID
 @export var id: int
 ## The name of the card
