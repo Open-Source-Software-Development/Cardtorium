@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Troop" inherits="Unit">
+	<brief_description>
+		Class which represents a troop on the board.
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_init">
+			<return type="void" />
+			<param index="0" name="card" type="Card" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="build_graph">
+			<return type="void" />
+			<param index="0" name="x" type="int" />
+			<param index="1" name="y" type="int" />
+			<param index="2" name="board" type="Board" />
+			<description>
+				Builds a graph of the tiles that the unit can move to.
+			</description>
+		</method>
+		<method name="clear_graph">
+			<return type="void" />
+			<description>
+				Frees a graph from memory
+			</description>
+		</method>
+		<method name="find_path">
+			<return type="void" />
+			<param index="0" name="from" type="Vector2i" />
+			<param index="1" name="to" type="Vector2i" />
+			<description>
+				After a graph has been built, used to build a path from the troop's starting position to the end position. This is used to animate the troop's movement. WARNING: This will throw an error if no graph is built, or if the values passed do not make sense.
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="base_stats" type="Card" setter="" getter="">
+		</member>
+		<member name="graph" type="Variant" setter="" getter="">
+		</member>
+		<member name="has_moved" type="bool" setter="" getter="" default="false">
+		</member>
+		<member name="id" type="int" setter="" getter="" default="0">
+		</member>
+	</members>
+</class>

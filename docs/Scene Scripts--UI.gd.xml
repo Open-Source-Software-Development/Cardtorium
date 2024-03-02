@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scene Scripts/UI.gd&quot;" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_gui_input">
+			<return type="void" />
+			<param index="0" name="event" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="_tile_clicked">
+			<return type="Vector2i" />
+			<param index="0" name="click_pos" type="Vector2" />
+			<description>
+				Given the position of an on-screen click, determines what tile coordinate should be selected. Essentially, converts mouse coords to tile coords.
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="game" type="Game" setter="" getter="">
+			The game object to render
+		</member>
+	</members>
+	<constants>
+		<constant name="UNSELECTED" value="0" enum="STATE">
+		</constant>
+		<constant name="TILE_SELECT" value="1" enum="STATE">
+		</constant>
+		<constant name="UNIT_SELECT" value="2" enum="STATE">
+		</constant>
+		<constant name="CARD_SELECT" value="3" enum="STATE">
+		</constant>
+	</constants>
+</class>

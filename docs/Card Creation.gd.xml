@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Card Creation.gd&quot;" inherits="Node">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="attribute" type="Attribute" setter="" getter="">
+		</member>
+		<member name="card" type="Card" setter="" getter="">
+		</member>
+	</members>
+</class>

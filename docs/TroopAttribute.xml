@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TroopAttribute" inherits="Node">
+	<brief_description>
+		Base class for troop
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="on_moved">
+			<return type="void" />
+			<param index="0" name="from" type="Vector2i" />
+			<param index="1" name="to" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="attribute_name" type="String" setter="" getter="">
+		</member>
+		<member name="description" type="String" setter="" getter="">
+		</member>
+		<member name="id" type="int" setter="" getter="">
+		</member>
+	</members>
+</class>

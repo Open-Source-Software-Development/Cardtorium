@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scene Scripts/rendered_troop.gd&quot;" inherits="Node2D">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="prepare_for_render">
+			<return type="void" />
+			<param index="0" name="troop_to_render" type="Troop" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="troop" type="Troop" setter="" getter="">
+		</member>
+	</members>
+</class>

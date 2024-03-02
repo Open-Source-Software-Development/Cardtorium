@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scene Scripts/camera.gd&quot;" inherits="Camera2D">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_physics_process">
+			<return type="void" />
+			<param index="0" name="delta" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="_unhandled_key_input">
+			<return type="void" />
+			<param index="0" name="event" type="Variant" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="speed" type="Variant" setter="" getter="" default="300">
+		</member>
+		<member name="vel" type="Vector2" setter="" getter="" default="Vector2(0, 0)">
+		</member>
+	</members>
+</class>

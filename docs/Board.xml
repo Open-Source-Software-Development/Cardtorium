@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Board" inherits="Resource">
+	<brief_description>
+		A container for positional data used during the course of a game. Contains all the data necessary to save and load games. However, it contains no game logic
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="setup">
+			<return type="void" />
+			<param index="0" name="wid" type="int" />
+			<param index="1" name="height" type="int" />
+			<description>
+				Allocates memory to set up an empty board with wid x height tiles.
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="SIZE" type="Vector2i" setter="" getter="">
+			The size of the board (in tiles) encoded as a vector
+		</member>
+		<member name="buildings" type="Array" setter="" getter="" default="&lt;unknown&gt;">
+			Array which stores the position of buildings.
+		</member>
+		<member name="player" type="int" setter="" getter="">
+			Which player is currently taking their turn
+		</member>
+		<member name="players" type="int" setter="" getter="">
+			The number of players
+		</member>
+		<member name="territory" type="Array" setter="" getter="" default="&lt;unknown&gt;">
+			2D array which stores territory data. A -1 means that the tile is unclaimed, whereas a nonnegative integer means that the tile has been claimed by player with that local id.
+		</member>
+		<member name="tiles" type="Array" setter="" getter="" default="&lt;unknown&gt;">
+			2D array which stores the terrain data for each grid of the board
+		</member>
+		<member name="turns" type="int" setter="" getter="">
+			The number of turns taken in the game
+		</member>
+		<member name="units" type="Array" setter="" getter="" default="&lt;unknown&gt;">
+			2D array which stores card locations.
+		</member>
+	</members>
+	<constants>
+		<constant name="GRASS" value="-1" enum="Terrain">
+		</constant>
+		<constant name="FOREST" value="0" enum="Terrain">
+		</constant>
+		<constant name="MOUNTAIN" value="1" enum="Terrain">
+		</constant>
+		<constant name="WATER" value="2" enum="Terrain">
+		</constant>
+	</constants>
+</class>
