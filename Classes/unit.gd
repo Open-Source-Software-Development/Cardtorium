@@ -20,4 +20,5 @@ var attack: int
 var rng: int
 ## Stores active status effects.
 var effects = []
-
+## Keeps track of which player currently owns the unit
+var owned_by: int
