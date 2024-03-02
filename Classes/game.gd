@@ -38,6 +38,15 @@ func place_card(card: Card, x: int, y: int):
 			troop_placed.emit(troop, Vector2i(x, y))
 
 
+## Places the nth card in the player's hand onto the board at position x, y
+func place_from_hand(index: int, x: int, y: int):
+	var player: Player = board.players[board.current_player]
+	var card: Card = player.hand[index]
+	player.remove_from_hand(index)
+	self.place_card(card, x, y)
+
+
+
 ## Goes to the next player's turn
 func end_turn():
 	# Lets other nodes know that a player has ended their turn
