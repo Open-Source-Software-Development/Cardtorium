@@ -1,6 +1,6 @@
 extends Node2D
 
-var troop_scene = preload("res://Scenes/rendered_troop.tscn")
+var troop_scene = preload("res://Scenes/Rendering/rendered_troop.tscn")
 const TILE_SIZE = 64
 @onready var game: Game = $Game
 
