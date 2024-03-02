@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://dh8o753kjbcqm"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_bgqx4"]
+
+[resource]
+script = ExtResource("1_bgqx4")
+name = "Dash"
+description = "Can attack after moving"
+id = 0
+abbreviation = "DASH"

@@ -5,9 +5,12 @@ extends Resource
 ## BuildingAttribute, and SpellAttribute.
 class_name Attribute
 
-# The name of the attribute
+## The name of the attribute
 @export var name: String
-# A description of the attribute
+## A description of the attribute
 @export var description: String
-# The attribute id
+## The attribute id
 @export var id: int
+## An abbreviation for the description's name.
+## Must be 6 characters long or less in all caps.
+@export var abbreviation: String
