@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6jcofumarup2"]
 
 [ext_resource type="Script" path="res://Card Creation.gd" id="1_spk5u"]
-[ext_resource type="Resource" uid="uid://2vgmj4rrek3b" path="res://Cards/Troops/troop_1.tres" id="2_jfjmy"]
+[ext_resource type="Resource" uid="uid://csqcxfa1smhwx" path="res://Cards/Troops/test.tres" id="2_frii7"]
 
 [node name="Card Creation" type="Node"]
 script = ExtResource("1_spk5u")
-card = ExtResource("2_jfjmy")
+card = ExtResource("2_frii7")
