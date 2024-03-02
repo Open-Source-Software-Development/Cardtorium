@@ -30,4 +30,4 @@ enum CardRarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY}
 ## The cost to place the card
 @export var cost: int
 ## The attribute ids of the card.
-@export var attributes = []
+@export var attributes: Array[int] = []
