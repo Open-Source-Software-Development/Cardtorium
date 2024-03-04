@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Attribute" inherits="Resource">
+	<brief_description>
+		A container for attribute data which needs to be rendered onto the screen. This class contains no logic. Logic is found within instances of TroopAttribute, BuildingAttribute, and SpellAttribute.
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="description" type="String" setter="" getter="">
+		</member>
+		<member name="id" type="int" setter="" getter="">
+		</member>
+		<member name="name" type="String" setter="" getter="">
+		</member>
+	</members>
+</class>

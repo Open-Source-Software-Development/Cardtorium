@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6jcofumarup2"]
+[gd_scene load_steps=4 format=3 uid="uid://c6jcofumarup2"]
 
 [ext_resource type="Script" path="res://Card Creation.gd" id="1_spk5u"]
 [ext_resource type="Resource" uid="uid://c1trhw5tmpdif" path="res://Cards/Troops/troop_16.tres" id="2_vmybo"]
+[ext_resource type="Resource" uid="uid://dh8o753kjbcqm" path="res://Attributes/Troops/Data/attribute_0.tres" id="3_vo1ts"]
 
 [node name="Card Creation" type="Node"]
 script = ExtResource("1_spk5u")
 card = ExtResource("2_vmybo")
+attribute = ExtResource("3_vo1ts")

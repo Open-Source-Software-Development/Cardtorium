@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scenes/Card_Browser/browser.gd&quot;" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_exit_browser_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="back_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+	</members>
+	<signals>
+		<signal name="exit_browser">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

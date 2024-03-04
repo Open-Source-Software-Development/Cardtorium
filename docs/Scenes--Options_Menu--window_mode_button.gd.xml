@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scenes/Options_Menu/window_mode_button.gd&quot;" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_process">
+			<return type="void" />
+			<param index="0" name="delta" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="add_window_mode_items">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_window_mode_selected">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="option_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+	</members>
+	<constants>
+		<constant name="WINDOW_MODE_ARRAY" value="Array[String]([&quot;Window Mode&quot;, &quot;Full-Screen&quot;])">
+		</constant>
+	</constants>
+</class>
