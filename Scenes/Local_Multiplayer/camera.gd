@@ -18,15 +18,8 @@ func _input(event):
 			mouse_button_down = false
 			if dragging:
 				dragging = false
-			else:
-				# Handle mouse click
-				var mouse_position = get_global_mouse_position()
-				var world_position = get_global_transform().affine_inverse().basis_xform_inv(mouse_position)
-				var tile_size = Vector2(64, 64)
-				var tile_coordinates = floor(world_position / tile_size)
-				print("coordinates:", tile_coordinates)
 
-	elif event is InputEventMouseMotion and mouse_button_down:
+	if event is InputEventMouseMotion and mouse_button_down:
 		if initial_mouse_pos.distance_to(get_global_mouse_position()) > drag_threshold:
 			dragging = true
 			var drag_end_world_pos = get_global_mouse_position()

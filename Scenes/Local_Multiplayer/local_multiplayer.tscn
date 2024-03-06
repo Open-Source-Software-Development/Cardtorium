@@ -1396,12 +1396,13 @@ script = ExtResource("8_gitxl")
 
 [node name="GUI_Renderer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="GUI_Renderer"]
+[node name="UI" type="Control" parent="GUI_Renderer" node_paths=PackedStringArray("game")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1150.0
-offset_bottom = 650.0
+offset_bottom = 484.0
 script = ExtResource("9_08uqy")
+game = NodePath("../../Game")
 
 [node name="FogRenderer" type="TileMap" parent="."]
 z_index = 10
