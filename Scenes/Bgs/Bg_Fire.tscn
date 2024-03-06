@@ -1,13 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc2dk3xqn46m0"]
+[gd_scene load_steps=18 format=3 uid="uid://cc2dk3xqn46m0"]
 
 [ext_resource type="Texture2D" uid="uid://b1od1c7fucfrr" path="res://Assets/Backgrounds/fire_ground_bg.png" id="1_5w771"]
-[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Fire.gd" id="1_54y76"]
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_scroll.gd" id="1_rcgco"]
 [ext_resource type="Texture2D" uid="uid://8vibjri717qb" path="res://Assets/Backgrounds/fire_ground_floor.png" id="2_f4hd8"]
 [ext_resource type="Texture2D" uid="uid://c2bybj20pi3b5" path="res://Assets/Backgrounds/fire_ground_p2.png" id="2_miku7"]
 [ext_resource type="Texture2D" uid="uid://bmvp8xrwh2hle" path="res://Assets/Backgrounds/fire_ground_p.png" id="3_5v103"]
+[ext_resource type="Texture2D" uid="uid://dmj5twip4e0oc" path="res://Assets/Characters/warrior.png" id="6_1tkqo"]
+[ext_resource type="Texture2D" uid="uid://bq4ja785mygtq" path="res://Assets/Characters/knight.png" id="7_mpwao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30i3t"]
+atlas = ExtResource("6_1tkqo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_expg0"]
+atlas = ExtResource("6_1tkqo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4a8v"]
+atlas = ExtResource("6_1tkqo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yijjj"]
+atlas = ExtResource("6_1tkqo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idkqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30i3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_expg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4a8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yijjj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k10et"]
+atlas = ExtResource("7_mpwao")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfnwa"]
+atlas = ExtResource("7_mpwao")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bati7"]
+atlas = ExtResource("7_mpwao")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyk51"]
+atlas = ExtResource("7_mpwao")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogivt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k10et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfnwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bati7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyk51")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="BgFire" type="ParallaxBackground"]
-script = ExtResource("1_54y76")
+script = ExtResource("1_rcgco")
 
 [node name="Fire_Bg" type="Sprite2D" parent="."]
 position = Vector2(576, 328)
@@ -31,3 +105,17 @@ texture = ExtResource("3_5v103")
 [node name="Fire_Floor" type="Sprite2D" parent="."]
 position = Vector2(576, 329)
 texture = ExtResource("2_f4hd8")
+
+[node name="Sprite1" type="AnimatedSprite2D" parent="."]
+position = Vector2(201, 414)
+scale = Vector2(4.89062, 4.32813)
+sprite_frames = SubResource("SpriteFrames_idkqs")
+animation = &"walk"
+flip_h = true
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(297, 402)
+scale = Vector2(5.97656, 4.78125)
+sprite_frames = SubResource("SpriteFrames_ogivt")
+animation = &"walk"
+flip_h = true
