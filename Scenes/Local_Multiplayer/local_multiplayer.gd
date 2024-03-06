@@ -19,6 +19,9 @@ func _ready():
 	fog.setup(board)
 	# TEST
 	board.players[0].clear_fog([Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 1)])
+	var card: Card = load('res://Cards/Troops/troop_1.tres')
+	game.place_card(card, 1, 4)
+	game.board.units[1][4].build_graph(1, 4, game.board)
 
 
 

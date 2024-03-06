@@ -34,6 +34,7 @@ func place_card(card: Card, x: int, y: int):
 		# Places a troop card
 		Card.CardType.TROOP:
 			var troop: Troop = Troop.new(card)
+			troop.owned_by = board.current_player
 			board.units[x][y] = troop
 			troop_placed.emit(troop, Vector2i(x, y))
 
