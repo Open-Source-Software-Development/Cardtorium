@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://nsm1ffw8nja7"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_5b4b7"]
+
+[resource]
+script = ExtResource("1_5b4b7")
+name = "Delayed"
+description = "Cannot counterattack"
+id = 16
+abbreviation = "DELAYD"

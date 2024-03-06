@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://dgbrdmpqi5d4w"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_3mt0v"]
+
+[resource]
+script = ExtResource("1_3mt0v")
+name = "Siege"
+description = "Does 1.25x damage to building tiles"
+id = 10
+abbreviation = "SIEGE"

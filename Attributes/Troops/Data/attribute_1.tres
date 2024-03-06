@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://cbikdywp48ab5"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_0863i"]
+
+[resource]
+script = ExtResource("1_0863i")
+name = "Retreat"
+description = "Can move once after attacking"
+id = 1
+abbreviation = "RTREAT"

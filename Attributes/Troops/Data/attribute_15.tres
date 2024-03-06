@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://ccpk6i3c0c75e"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_uc6vj"]
+
+[resource]
+script = ExtResource("1_uc6vj")
+name = "Rejuvenate"
+description = "Allow one troop in range to take another turn"
+id = 15
+abbreviation = "RJVNAT"

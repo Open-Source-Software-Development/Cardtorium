@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://dy8571ht4oqe4"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_t52ct"]
+
+[resource]
+script = ExtResource("1_t52ct")
+name = "Scout"
+description = "Removes Fog in a 2-tile radius"
+id = 4
+abbreviation = "SCOUT"

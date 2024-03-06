@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://j6gi4iri8cgu"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_krqhu"]
+
+[resource]
+script = ExtResource("1_krqhu")
+name = "Splash"
+description = "Does 0.5x damage to everything in a 1-tile radius of the attack"
+id = 5
+abbreviation = "SPLASH"
