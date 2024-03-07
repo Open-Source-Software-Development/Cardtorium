@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://kspsv02i5iy1"]
 
-[ext_resource type="Script" path="res://Scenes/Card_Renderer/card_renderer.gd" id="1_jl87w"]
 [ext_resource type="Texture2D" uid="uid://bl3xprvcul5w6" path="res://Assets/UI/hp.png" id="1_mrwpo"]
 [ext_resource type="Texture2D" uid="uid://c4488nf15ellb" path="res://Assets/UI/attack.png" id="2_nnt1j"]
 [ext_resource type="Texture2D" uid="uid://bex7eab725l2p" path="res://Assets/UI/def.png" id="3_nd038"]
@@ -9,195 +8,141 @@
 [ext_resource type="Texture2D" uid="uid://cj8h30ho7pg0u" path="res://Assets/Characters/CardSprites/cardart_3.png" id="7_6yorb"]
 [ext_resource type="Texture2D" uid="uid://d00gieghcoraj" path="res://Assets/UI/cost.png" id="8_5c633"]
 
-[node name="Card" type="ColorRect"]
-offset_left = 384.0
-offset_top = 2.0
-offset_right = 811.0
-offset_bottom = 645.0
-color = Color(0.992157, 1, 0, 1)
-script = ExtResource("1_jl87w")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swcj5"]
+bg_color = Color(0.992157, 1, 0, 1)
 
-[node name="Bg" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -203.5
-offset_top = -311.5
-offset_right = 203.5
-offset_bottom = 311.5
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -708.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_swcj5")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Bg" type="ColorRect" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
 color = Color(0.913725, 0.72549, 0.588235, 1)
 
-[node name="Name" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -207.5
-offset_top = 63.0
-offset_right = 208.5
-offset_bottom = 112.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "NAME"
-horizontal_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="HP_Icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 8.54
-offset_top = 15.0
-offset_right = 64.54
-offset_bottom = 58.0
-scale = Vector2(0.82, 0.82)
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+
+[node name="Stat_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="HP_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HP_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
+layout_mode = 2
 texture = ExtResource("1_mrwpo")
-expand_mode = 1
+expand_mode = 3
 
-[node name="HP" type="Label" parent="."]
-layout_mode = 0
-offset_left = 43.44
-offset_top = 18.0
-offset_right = 90.44
-offset_bottom = 66.0
-scale = Vector2(0.82, 0.82)
+[node name="HP" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "30"
 horizontal_alignment = 1
 
-[node name="ATK_Icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 70.32
-offset_top = 13.0
-offset_right = 132.32
-offset_bottom = 68.0
-scale = Vector2(0.82, 0.82)
+[node name="ATK_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ATK_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
+layout_mode = 2
 texture = ExtResource("2_nnt1j")
-expand_mode = 1
+expand_mode = 3
 
-[node name="ATK" type="Label" parent="."]
-layout_mode = 0
-offset_left = 106.23
-offset_top = 18.0
-offset_right = 153.23
-offset_bottom = 66.0
-scale = Vector2(0.82, 0.82)
+[node name="ATK" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "30"
 horizontal_alignment = 1
 
-[node name="DEF_Icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 140.26
-offset_top = 14.0
-offset_right = 185.26
-offset_bottom = 61.0
-scale = Vector2(0.82, 0.82)
+[node name="DEF_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+
+[node name="DEF_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
+layout_mode = 2
 texture = ExtResource("3_nd038")
-expand_mode = 1
+expand_mode = 3
 
-[node name="DEF" type="Label" parent="."]
-layout_mode = 0
-offset_left = 171.35
-offset_top = 18.0
-offset_right = 218.35
-offset_bottom = 66.0
-scale = Vector2(0.82, 0.82)
+[node name="DEF" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "30"
 horizontal_alignment = 1
 
-[node name="Move_Icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 201.58
-offset_top = 11.0
-offset_right = 263.58
-offset_bottom = 70.0
-scale = Vector2(0.82, 0.82)
+[node name="MOVE_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+
+[node name="Move_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
+layout_mode = 2
 texture = ExtResource("4_w564t")
-expand_mode = 1
+expand_mode = 3
 
-[node name="Move" type="Label" parent="."]
-layout_mode = 0
-offset_left = 245.09
-offset_top = 18.0
-offset_right = 292.09
-offset_bottom = 66.0
-scale = Vector2(0.82, 0.82)
+[node name="Move" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "30"
 horizontal_alignment = 1
 
-[node name="Range_Icon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 284.23
-offset_top = 12.0
-offset_right = 329.23
-offset_bottom = 61.0
-scale = Vector2(0.82, 0.82)
+[node name="RANGE_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+
+[node name="Range_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
+layout_mode = 2
 texture = ExtResource("5_y3dqw")
-expand_mode = 1
+expand_mode = 3
 
-[node name="Range" type="Label" parent="."]
-layout_mode = 0
-offset_left = 320.01
-offset_top = 18.0
-offset_right = 367.01
-offset_bottom = 66.0
-scale = Vector2(0.82, 0.82)
+[node name="Range" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
 text = "30"
 horizontal_alignment = 1
 
-[node name="Image_Border" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.5
-offset_top = -218.15
-offset_right = 197.5
-offset_bottom = 12.8497
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+[node name="COST_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+layout_mode = 2
+theme_override_constants/separation = 50
 
-[node name="Card_Image" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -194.5
-offset_top = -215.5
-offset_right = 195.5
-offset_bottom = 9.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_6yorb")
-expand_mode = 2
-
-[node name="CostArea" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 363.0
-offset_right = 427.0
-offset_bottom = 63.0
+[node name="CostArea" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container"]
+layout_mode = 2
 texture = ExtResource("8_5c633")
 expand_mode = 2
 
-[node name="Cost" type="Label" parent="CostArea"]
+[node name="Cost" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container/CostArea"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,38 +156,58 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -195.5
-offset_top = 19.5
-offset_right = 195.5
-offset_bottom = 205.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Name" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Description" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -191.0
-offset_top = -105.03
-offset_right = 191.0
-offset_bottom = -12.03
-grow_horizontal = 2
-grow_vertical = 0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="Image_Border" type="ColorRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(50, 175)
+layout_mode = 2
+color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Card_Image" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("7_6yorb")
+expand_mode = 2
+
+[node name="AttributeContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Description" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu magna ipsum. Nam tempus erat nisi, eu gravida diam aliquam sed. Aliquam varius neque ut leo ultricies, at semper nisi.\""
