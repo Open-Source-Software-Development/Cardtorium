@@ -11,138 +11,128 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swcj5"]
 bg_color = Color(0.992157, 1, 0, 1)
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -708.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer"]
+texture_filter = 2
 custom_minimum_size = Vector2(400, 500)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2.0
-offset_bottom = -95.0
+offset_right = -680.0
+offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_swcj5")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Bg" type="ColorRect" parent="MarginContainer/MarginContainer2"]
+[node name="Bg" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
 color = Color(0.913725, 0.72549, 0.588235, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_top = 10
 
-[node name="Stat_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+[node name="Stat_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="HP_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="HP_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HP_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
+[node name="HP_Icon" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
 layout_mode = 2
 texture = ExtResource("1_mrwpo")
 expand_mode = 3
 
-[node name="HP" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
+[node name="HP" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "30"
 horizontal_alignment = 1
 
-[node name="ATK_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="ATK_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ATK_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
+[node name="ATK_Icon" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
 layout_mode = 2
 texture = ExtResource("2_nnt1j")
 expand_mode = 3
 
-[node name="ATK" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
+[node name="ATK" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "30"
 horizontal_alignment = 1
 
-[node name="DEF_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="DEF_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 
-[node name="DEF_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
+[node name="DEF_Icon" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
 layout_mode = 2
 texture = ExtResource("3_nd038")
 expand_mode = 3
 
-[node name="DEF" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
+[node name="DEF" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "30"
 horizontal_alignment = 1
 
-[node name="MOVE_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="MOVE_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 
-[node name="Move_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
+[node name="Move_Icon" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
 layout_mode = 2
 texture = ExtResource("4_w564t")
 expand_mode = 3
 
-[node name="Move" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
+[node name="Move" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "30"
 horizontal_alignment = 1
 
-[node name="RANGE_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="RANGE_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 
-[node name="Range_Icon" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
+[node name="Range_Icon" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
 layout_mode = 2
 texture = ExtResource("5_y3dqw")
 expand_mode = 3
 
-[node name="Range" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
+[node name="Range" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "30"
 horizontal_alignment = 1
 
-[node name="COST_Container" type="HBoxContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
+[node name="COST_Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="CostArea" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container"]
+[node name="CostArea" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container"]
 layout_mode = 2
 texture = ExtResource("8_5c633")
 expand_mode = 2
 
-[node name="Cost" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container/CostArea"]
+[node name="Cost" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/COST_Container/CostArea"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,7 +150,7 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -169,42 +159,42 @@ text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
-[node name="Image_Border" type="ColorRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="Image_Border" type="ColorRect" parent="MarginContainer2/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(50, 175)
 layout_mode = 2
 color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Card_Image" type="TextureRect" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="Card_Image" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("7_6yorb")
 expand_mode = 2
 
-[node name="AttributeContainer" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="AttributeContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 40
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Description" type="Label" parent="MarginContainer/MarginContainer2/VBoxContainer/MarginContainer3"]
+[node name="Description" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer3"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
