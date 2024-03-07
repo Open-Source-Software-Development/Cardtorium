@@ -3,12 +3,14 @@ extends Node
 ## Base class for troop
 class_name TroopAttribute
 
-# The name of the attribute
-@export var attribute_name: String
-# The ID of the attribute
-@export var id: int
-# The description of the attribute
-@export var description: String
+
+## Stores data on the attribute description
+var attribute: Attribute
+
+
+## Uses a .tscn file to add a description, name, abbreviation, and id to the attribute
+func add_description(desc: Attribute):
+    attribute = desc
 
 
 # Virtual function which can be overwritten by children
