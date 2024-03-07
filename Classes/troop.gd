@@ -12,6 +12,8 @@ var has_moved: bool = false
 var base_stats: Card
 ## Graph of tiles that the troop can move to.
 var move_graph
+## Stores the troop's attributes
+var attributes: Array[TroopAttribute] = []
 
 
 func _init(card: Card = null):
@@ -84,9 +86,7 @@ func build_graph(x: int, y: int, board: Board):
 	self.move_graph = graph
 
 
-## Internal function which determines the cost of moving from a tile to a tile.
-## Attributes can affect the behavior of this function.
-## The two tiles should be 1 tile apart.
+## Internal function which determines the cost of moving from a tile to a tile.[br]
 func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board) -> float:
 	var dest_type: Board.Terrain = board.tiles[to.x][to.y]
 	# Checks if the move is even discovered
