@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scenes/Options_Menu/resolution_mode_button.gd&quot;" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="add_resolution_items">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_resolution_selected">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="option_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+	</members>
+	<constants>
+		<constant name="RESOLUTION_DICTIONARY" value="{&quot;1152 x 648&quot;: Vector2(1152, 648), &quot;1280 x 720&quot;: Vector2(1200, 720), &quot;1920 x 1080&quot;: Vector2(1920, 1080), &quot;2560 x 1440&quot;: Vector2(2560, 1440), &quot;3840 x 2160&quot;: Vector2(3840, 2160)}">
+		</constant>
+	</constants>
+</class>

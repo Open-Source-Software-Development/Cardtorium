@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="MainMenu" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="handle_connecting_signals">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_deck_browse_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_exit_browse_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_exit_options_menu">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_exit_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_options_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_start_pressed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="bg1" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bg2" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bg3" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bg4" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bg5" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bgs" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="browser_menu" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="deck_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="exit_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="margin_container" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="options_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="options_menu" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="rng" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="start_button" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="start_level" type="Variant" setter="" getter="" default="&lt;Object&gt;">
+		</member>
+		<member name="title1" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="title2" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="title3" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="title4" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="title5" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="titles" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+	</members>
+</class>

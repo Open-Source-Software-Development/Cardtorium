@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://ddniig55pjhi7"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_kk0d8"]
+
+[resource]
+script = ExtResource("1_kk0d8")
+type = 0
+id = 20
+name = "Lancer"
+rarity = 2
+health = 20
+attack = 14
+defense = 6
+attack_range = 1
+movement = 3
+cost = 13
+attributes = [0, 1]

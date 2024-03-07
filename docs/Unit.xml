@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Unit" inherits="Node">
+	<brief_description>
+		Member variables
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="attack" type="int" setter="" getter="">
+			Current attack of the unit
+		</member>
+		<member name="base_attack" type="int" setter="" getter="">
+			The base attack of the unit. Does not change after initialization.
+		</member>
+		<member name="base_health" type="int" setter="" getter="">
+			The base health of the unit. Does not change after initialization.
+		</member>
+		<member name="base_rng" type="int" setter="" getter="">
+			The default range of the unit.
+		</member>
+		<member name="effects" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+			Stores active status effects.
+		</member>
+		<member name="health" type="int" setter="" getter="">
+			Current health of the unit
+		</member>
+		<member name="rng" type="int" setter="" getter="">
+			Current range of the unit
+		</member>
+	</members>
+</class>

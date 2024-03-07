@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bxrsvxh623b4c"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_hobrh"]
+
+[resource]
+script = ExtResource("1_hobrh")
+type = 0
+id = 2
+name = "Imperial Archer"
+rarity = 0
+health = 10
+attack = 6
+defense = 3
+attack_range = 2
+movement = 1
+cost = 3
+attributes = [0, 3]

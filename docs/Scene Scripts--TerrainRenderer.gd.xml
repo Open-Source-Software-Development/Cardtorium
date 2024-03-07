@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<class name="&quot;./Scenes/TerrainRenderer.gd&quot;" inherits="TileMap">
+<class name="&quot;Scene Scripts/TerrainRenderer.gd&quot;" inherits="TileMap">
 	<brief_description>
 	</brief_description>
 	<description>

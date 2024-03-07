@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Game" inherits="Node">
+	<brief_description>
+		Class which contains the logic and data required to run a game. Does not contain any rendering functions or input processing.
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="move_troop">
+			<return type="void" />
+			<param index="0" name="from" type="Vector2i" />
+			<param index="1" name="to" type="Vector2i" />
+			<description>
+				Moves a troop from one position to another. WARNING: If the move is invalid, then this function will throw an error.
+			</description>
+		</method>
+		<method name="place_card">
+			<return type="void" />
+			<param index="0" name="card" type="Card" />
+			<param index="1" name="x" type="int" />
+			<param index="2" name="y" type="int" />
+			<description>
+				Takes a card as input, and places that card at position x, y.
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="board" type="Board" setter="" getter="" default="&lt;unknown&gt;">
+			Contains the game's data. Saving the board to disk allows saving and loading games.
+		</member>
+	</members>
+	<signals>
+		<signal name="terrain_updated">
+			<param index="0" name="changed" type="Vector2i[]" />
+			<param index="1" name="terrain" type="int" enum="Board.Terrain" />
+			<description>
+				Notifies other nodes when a set of terrain tiles is changed.
+			</description>
+		</signal>
+		<signal name="troop_placed">
+			<param index="0" name="troop" type="Troop" />
+			<param index="1" name="pos" type="Vector2i" />
+			<description>
+				Emitted when a troop is placed.
+			</description>
+		</signal>
+	</signals>
+</class>

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://5cv06oswmc6f"]
+
+[ext_resource type="Script" path="res://Scenes/Rendering/rendered_troop.gd" id="1_fdp87"]
+[ext_resource type="Texture2D" uid="uid://bntktjky1odcq" path="res://Assets/Troop Sprites/default.png" id="2_f0vdm"]
+
+[node name="Rendered Troop" type="Node2D"]
+script = ExtResource("1_fdp87")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_f0vdm")
+centered = false

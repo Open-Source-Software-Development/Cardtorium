@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b0se3ihc5rqsi"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_arbf2"]
+
+[resource]
+script = ExtResource("1_arbf2")
+type = 0
+id = 5
+name = "Spy"
+rarity = 2
+health = 15
+attack = 1
+defense = 1
+attack_range = 1
+movement = 3
+cost = 11
+attributes = [9, 11, 18]

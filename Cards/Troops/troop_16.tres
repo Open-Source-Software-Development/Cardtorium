@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c1trhw5tmpdif"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_1gfw6"]
+
+[resource]
+script = ExtResource("1_1gfw6")
+type = 0
+id = 16
+name = "Rejuvenator"
+rarity = 4
+health = 30
+attack = 3
+defense = 22
+attack_range = 3
+movement = 1
+cost = 24
+attributes = [15, 16]

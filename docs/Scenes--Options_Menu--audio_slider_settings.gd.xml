@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="&quot;Scenes/Options_Menu/audio_slider_settings.gd&quot;" inherits="Control">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_ready">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_name_by_index">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="on_value_changed">
+			<return type="void" />
+			<param index="0" name="value" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="set_audio_num_label_text">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="set_name_label_text">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="set_slider_value">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="audio_name" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="audio_num" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+		<member name="bus_index" type="int" setter="" getter="" default="0">
+		</member>
+		<member name="bus_name" type="String" setter="" getter="">
+		</member>
+		<member name="h_slider" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+		</member>
+	</members>
+</class>

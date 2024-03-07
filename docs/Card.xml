@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Card" inherits="Resource">
+	<brief_description>
+		Contains the metadata for a card
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="attack" type="int" setter="" getter="">
+			The card's attack
+		</member>
+		<member name="attack_range" type="int" setter="" getter="">
+			The card's range
+		</member>
+		<member name="attributes" type="Variant" setter="" getter="" default="&lt;unknown&gt;">
+			The attribute ids of the card.
+		</member>
+		<member name="cost" type="int" setter="" getter="">
+			The cost to place the card
+		</member>
+		<member name="defense" type="int" setter="" getter="">
+			The card's defense
+		</member>
+		<member name="health" type="int" setter="" getter="">
+			The card's HP
+		</member>
+		<member name="id" type="int" setter="" getter="">
+			The card's ID
+		</member>
+		<member name="movement" type="int" setter="" getter="">
+			The card's movement
+		</member>
+		<member name="name" type="String" setter="" getter="">
+			The name of the card
+		</member>
+		<member name="rarity" type="int" setter="" getter="" enum="Card.CardRarity">
+			The rarity of the card
+		</member>
+		<member name="type" type="int" setter="" getter="" enum="Card.CardType">
+			The type of card that this object represents.
+		</member>
+	</members>
+	<constants>
+		<constant name="TROOP" value="0" enum="CardType">
+		</constant>
+		<constant name="BUILDING" value="1" enum="CardType">
+		</constant>
+		<constant name="SPELL" value="2" enum="CardType">
+		</constant>
+		<constant name="COMMON" value="0" enum="CardRarity">
+		</constant>
+		<constant name="UNCOMMON" value="1" enum="CardRarity">
+		</constant>
+		<constant name="RARE" value="2" enum="CardRarity">
+		</constant>
+		<constant name="EPIC" value="3" enum="CardRarity">
+		</constant>
+		<constant name="LEGENDARY" value="4" enum="CardRarity">
+		</constant>
+	</constants>
+</class>

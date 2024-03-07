@@ -1,4 +1,3 @@
-class_name MainMenu
 extends Control
 
 @onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/Start_Button as Button
@@ -8,7 +7,7 @@ extends Control
 @onready var options_menu = $Options_Menu as OptionsMenu
 @onready var browser_menu = $Browser
 @onready var margin_container = $MarginContainer as MarginContainer
-@export var start_level = preload("res://Scenes/local_multiplayer.tscn") as PackedScene
+@export var start_level = preload ("res://Scenes/Local_Multiplayer/local_multiplayer.tscn") as PackedScene
 
 # Title Color
 @onready var title1 = $MarginContainer/VBoxContainer/Title1
@@ -28,14 +27,12 @@ extends Control
 
 var rng = RandomNumberGenerator.new()
 
-
 func _ready():
 	handle_connecting_signals()
-	var index = rng.randi_range(0,4)
+	var index = rng.randi_range(0, 4)
 	# print_debug(titles[index])
 	titles[index].visible = true
 	bgs[index].visible = true
-
 	
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
@@ -67,4 +64,3 @@ func on_deck_browse_pressed():
 func on_exit_browse_pressed():
 	browser_menu.visible = false
 	margin_container.visible = true
-	

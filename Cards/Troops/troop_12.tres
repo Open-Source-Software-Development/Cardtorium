@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c5dsicccayi6h"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_liwql"]
+
+[resource]
+script = ExtResource("1_liwql")
+type = 0
+id = 12
+name = "Imperial Spearman"
+rarity = 0
+health = 10
+attack = 2
+defense = 8
+attack_range = 1
+movement = 1
+cost = 2
+attributes = [2]
