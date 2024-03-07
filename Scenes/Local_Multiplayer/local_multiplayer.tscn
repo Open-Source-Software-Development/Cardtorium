@@ -1369,6 +1369,7 @@ terrain_set_0/terrain_0/color = Color(0.709804, 0, 0.301961, 1)
 sources/0 = SubResource("TileSetAtlasSource_hh2ia")
 
 [node name="LocalMultiplayer" type="Node2D"]
+z_index = 10
 script = ExtResource("1_w84yu")
 
 [node name="Game" type="Node" parent="."]
