@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://csqcxfa1smhwx"]
+
+[ext_resource type="Script" path="res://Classes/card.gd" id="1_m60c6"]
+
+[resource]
+script = ExtResource("1_m60c6")
+type = 0
+rarity = 0
+attributes = [1, 2]
+id = 1
+name = "Her Majesty the 57th Governor of the Jewel of the Sea, Commander of the Aquatic Scourge, Head of the Cobalt Dynasty Empress Alta VI"
+health = 10
+attack = 5
+defense = 20
+attack_range = 3
+movement = 4
