@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://dx7ng5rdg2x2l"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_pm5f2"]
+
+[resource]
+script = ExtResource("1_pm5f2")
+name = "Hidden"
+description = "Other players cannot see this card unless a troop or support card is right next to it"
+id = 9
+abbreviation = "HIDDEN"

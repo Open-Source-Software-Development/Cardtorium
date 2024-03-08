@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://8n5qm77wcanp"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_5bqgq"]
+
+[resource]
+script = ExtResource("1_5bqgq")
+name = "Rally"
+description = "Increase attack and defense of allies in range"
+id = 13
+abbreviation = "RALLY"

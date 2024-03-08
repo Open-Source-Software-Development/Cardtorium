@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://bb5ho4osh7px2"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_g8xaa"]
+
+[resource]
+script = ExtResource("1_g8xaa")
+name = "Doctor"
+description = "Heals a single troop for (own curr hp)/2"
+id = 7
+abbreviation = "DOCTOR"
