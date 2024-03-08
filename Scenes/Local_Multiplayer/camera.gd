@@ -9,7 +9,7 @@ var mouse_button_down = false
 var dragging = false
 var drag_threshold = 100 # must drag this many pixels to be considered a drag
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 			mouse_button_down = true

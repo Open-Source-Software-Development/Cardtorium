@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://kspsv02i5iy1"]
+[gd_scene load_steps=10 format=3 uid="uid://kspsv02i5iy1"]
 
+[ext_resource type="Script" path="res://Scenes/Card_Renderer/card_renderer.gd" id="1_mhkcl"]
 [ext_resource type="Texture2D" uid="uid://bl3xprvcul5w6" path="res://Assets/UI/hp.png" id="1_mrwpo"]
 [ext_resource type="Texture2D" uid="uid://c4488nf15ellb" path="res://Assets/UI/attack.png" id="2_nnt1j"]
 [ext_resource type="Texture2D" uid="uid://bex7eab725l2p" path="res://Assets/UI/def.png" id="3_nd038"]
@@ -21,6 +22,7 @@ offset_right = -680.0
 offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mhkcl")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2

@@ -1,6 +1,6 @@
-extends ColorRect
+extends MarginContainer
 
-@onready var card: Card = load("res://Cards/Troops/test.tres")
+@onready var card: Card = load("res://Cards/Troops/troop_1.tres")
 
 '''
 RARITY NAME COLORS:
@@ -22,13 +22,12 @@ FACTION BORDER COLORS:
 
 
 # STATS
-@onready var atk = $ATK
-@onready var def = $DEF
-@onready var hp = $HP
-@onready var range = $Range
-@onready var move = $Move
-@onready var card_name = $Name
-@onready var bg = get_tree().get_root().get_node("Card")
+@onready var atk = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container/ATK
+@onready var def = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container/DEF
+@onready var hp = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container/HP
+@onready var range = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container/Range
+@onready var move = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container/Move
+@onready var card_name = $MarginContainer2/VBoxContainer/Name
 
 # MAX 30 WORD DESCRIPTIONS
 
@@ -41,12 +40,9 @@ func _ready():
 	range.text = str(card.attack_range)
 	move.text = str(card.movement)
 	card_name.text = card.name
+	print(card.name)
 
 	# match(card.type):
 	# 	Card.CardType.TROOP:
 	# 		bg.color = Color()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -14,4 +14,4 @@ defense = 3
 attack_range = 2
 movement = 1
 cost = 3
-attributes = [0, 3]
+attributes = Array[int]([0, 3])
