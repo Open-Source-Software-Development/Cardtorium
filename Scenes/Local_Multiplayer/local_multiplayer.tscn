@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpjc8y8la6h8n"]
+[gd_scene load_steps=20 format=3 uid="uid://cpjc8y8la6h8n"]
 
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy60wb4c6abpk" path="res://Assets/Tiles/forest.png" id="3_2ac0w"]
 [ext_resource type="Texture2D" uid="uid://deyqxd6p57wac" path="res://Assets/Tiles/mountain.png" id="4_lxt31"]
 [ext_resource type="Texture2D" uid="uid://otby6u4c8iit" path="res://Assets/Tiles/water.png" id="5_5trbo"]
+[ext_resource type="Texture2D" uid="uid://caes8jo0ve5c8" path="res://Assets/Tiles/TileSelected.png" id="7_271io"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/TerrainRenderer.gd" id="7_fqdo8"]
 [ext_resource type="Texture2D" uid="uid://b41gbib33us0y" path="res://Assets/Tiles/fog.png" id="7_gkb7q"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
@@ -1011,6 +1012,11 @@ texture_region_size = Vector2i(32, 32)
 8:4/0/terrains_peering_bit/left_side = 2
 8:4/0/terrains_peering_bit/top_side = 2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sra53"]
+texture = ExtResource("7_271io")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_n8dcm"]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 0
@@ -1023,6 +1029,7 @@ terrain_set_0/terrain_2/color = Color(0, 0.494118, 0.8, 1)
 sources/0 = SubResource("TileSetAtlasSource_vd3i8")
 sources/1 = SubResource("TileSetAtlasSource_2lbnf")
 sources/2 = SubResource("TileSetAtlasSource_imnwa")
+sources/3 = SubResource("TileSetAtlasSource_sra53")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2ia"]
 texture = ExtResource("7_gkb7q")
@@ -1387,6 +1394,7 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_n8dcm")
 format = 2
 layer_0/tile_data = PackedInt32Array(65539, 65536, 0, 65538, 0, 0, 131074, 393216, 2, 131073, 0, 0, 196609, 0, 1, 196610, 65536, 1, 131075, 65536, 1, 196611, 65536, 1, 262147, 65536, 1, 262148, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 262151, 65536, 1, 262152, 131072, 1, 196616, 131072, 1, 131080, 131072, 0, 131079, 327680, 2, 131078, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 196615, 65536, 1, 65543, 131072, 0, 65542, 65536, 0, 65541, 65536, 0, 65540, 65536, 0, 262146, 393216, 1, 262145, 0, 2, 327682, 0, 2, 327683, 65536, 2, 327684, 393216, 1, 393220, 0, 2, 393221, 131072, 2, 327685, 327680, 1, 327686, 65536, 2, 327687, 65536, 2, 327688, 327680, 3, 327689, 131072, 3, 196621, 131074, 0, 262157, 131074, 2, 262156, 65538, 2, 262155, 327682, 1, 327691, 131074, 2, 327690, 2, 2, 262154, 2, 1, 196618, 2, 1, 131082, 2, 0, 131083, 131074, 0, 196619, 327682, 2, 196620, 65538, 0)
+layer_1/tile_data = PackedInt32Array()
 script = ExtResource("7_fqdo8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
