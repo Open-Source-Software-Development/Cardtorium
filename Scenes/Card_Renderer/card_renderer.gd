@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var card: Card = load("res://Cards/Troops/troop_1.tres")
+var card: Card
 
 '''
 RARITY NAME COLORS:
@@ -30,17 +30,11 @@ FACTION BORDER COLORS:
 
 # MAX 30 WORD DESCRIPTIONS
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func setup(_card: Card):
+	card = _card
 	atk.text = str(card.attack)
 	def.text = str(card.defense)
 	hp.text = str(card.health)
 	range.text = str(card.attack_range)
 	move.text = str(card.movement)
 	card_name.text = card.name
-
-	print(card.name)
-
-	# match(card.type):
-	# 	Card.CardType.TROOP:
-	# 		bg.color = Color()

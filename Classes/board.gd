@@ -58,7 +58,19 @@ func setup(wid: int, height: int, _num_players: int):
 		units[x].fill(null)
 	players = []
 	# TODO: Replace code below, and actually use the `num_players` variable
-	players.append(Player.new(SIZE, Vector2i(0,SIZE.y / 2)))
-	players.append(Player.new(SIZE, Vector2i(SIZE.x - 1,SIZE.y / 2)))
+	var card1: Card = load('res://Cards/Troops/troop_1.tres')
+	var card2: Card = load('res://Cards/Troops/troop_8.tres')
+	var card3: Card = load('res://Cards/Troops/troop_12.tres')
+	var deck: Array[Card] = [
+		card1, card2, card3,
+		card1, card2, card3,
+		card1, card2, card3,
+		card1, card2, card3,
+		card1, card2, card3,
+		card1, card2, card3,
+	]
+	players.append(Player.new(SIZE, Vector2i(0,SIZE.y / 2), deck))
+	players.append(Player.new(SIZE, Vector2i(SIZE.x - 1,SIZE.y / 2), deck))
 	players[0].local_id = 0
 	players[1].local_id = 1
+	players[0].begin_turn()

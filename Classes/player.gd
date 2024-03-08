@@ -33,7 +33,7 @@ var deck: Array[Card]
 var hand: Array[Card]
 
 ## Creates a new player resource from scratch
-func _init(board_size: Vector2i, start_location: Vector2i):
+func _init(board_size: Vector2i, start_location: Vector2i, _deck: Array[Card]):
     randomize()
     discovered = []
     for x in range(board_size.x):
@@ -53,6 +53,7 @@ func _init(board_size: Vector2i, start_location: Vector2i):
             elif y >= board_size.y:
                 break
             discovered[x][y] = true
+    deck = _deck
 
 
 ## Called right before the player's turn begins
