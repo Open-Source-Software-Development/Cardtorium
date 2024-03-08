@@ -1,13 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxncvsh5owco1"]
+[gd_scene load_steps=18 format=3 uid="uid://cxncvsh5owco1"]
 
-[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Mountain.gd" id="1_8j66p"]
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_scroll.gd" id="1_cuy4i"]
 [ext_resource type="Texture2D" uid="uid://don8tfoid21hr" path="res://Assets/Backgrounds/mountain_ground_bg.png" id="1_pgtxe"]
 [ext_resource type="Texture2D" uid="uid://dwbq3hb5ifl8l" path="res://Assets/Backgrounds/mountain_ground_floor.png" id="2_c50o6"]
 [ext_resource type="Texture2D" uid="uid://dhml8evxymtng" path="res://Assets/Backgrounds/mountain_ground_p2.png" id="2_elfm1"]
 [ext_resource type="Texture2D" uid="uid://j5c871l71ks0" path="res://Assets/Backgrounds/mountain_ground_p.png" id="3_08g04"]
+[ext_resource type="Texture2D" uid="uid://dmj5twip4e0oc" path="res://Assets/Characters/warrior.png" id="6_vmwdn"]
+[ext_resource type="Texture2D" uid="uid://bq4ja785mygtq" path="res://Assets/Characters/knight.png" id="7_oh4f3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30i3t"]
+atlas = ExtResource("6_vmwdn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_expg0"]
+atlas = ExtResource("6_vmwdn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4a8v"]
+atlas = ExtResource("6_vmwdn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yijjj"]
+atlas = ExtResource("6_vmwdn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8ad7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30i3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_expg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4a8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yijjj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k10et"]
+atlas = ExtResource("7_oh4f3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfnwa"]
+atlas = ExtResource("7_oh4f3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bati7"]
+atlas = ExtResource("7_oh4f3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyk51"]
+atlas = ExtResource("7_oh4f3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v1ce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k10et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfnwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bati7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyk51")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="BgMountain" type="ParallaxBackground"]
-script = ExtResource("1_8j66p")
+script = ExtResource("1_cuy4i")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -35,3 +109,17 @@ motion_mirroring = Vector2(1152, 2.08165e-12)
 [node name="Floor" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(576, 326)
 texture = ExtResource("2_c50o6")
+
+[node name="Sprite1" type="AnimatedSprite2D" parent="."]
+position = Vector2(201, 414)
+scale = Vector2(4.89062, 4.32813)
+sprite_frames = SubResource("SpriteFrames_s8ad7")
+animation = &"walk"
+flip_h = true
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(297, 402)
+scale = Vector2(5.97656, 4.78125)
+sprite_frames = SubResource("SpriteFrames_3v1ce")
+animation = &"walk"
+flip_h = true

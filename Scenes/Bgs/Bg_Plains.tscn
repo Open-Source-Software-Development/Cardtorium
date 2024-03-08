@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://uqkos0hq4eiv"]
 
-[ext_resource type="Script" path="res://Scenes/Bgs/Bg_Plains.gd" id="1_kav0p"]
+[ext_resource type="Script" path="res://Scenes/Bgs/Bg_scroll.gd" id="1_n8ndo"]
 [ext_resource type="Texture2D" uid="uid://cfmtmlyfgpbyh" path="res://Assets/Backgrounds/plains_ground_bg.png" id="1_v2bhn"]
 [ext_resource type="Texture2D" uid="uid://dt1hgxmlsogqj" path="res://Assets/Backgrounds/plains_ground_p.png" id="2_bewva"]
 [ext_resource type="Texture2D" uid="uid://ci54vurupywai" path="res://Assets/Backgrounds/plains_ground_floor.png" id="3_f40gy"]
-[ext_resource type="Texture2D" uid="uid://dmj5twip4e0oc" path="res://Assets/Characters/warrior.png" id="4_svhm3"]
-[ext_resource type="Texture2D" uid="uid://bq4ja785mygtq" path="res://Assets/Characters/knight.png" id="5_f0jbd"]
+[ext_resource type="Texture2D" uid="uid://dmj5twip4e0oc" path="res://Assets/Characters/BoardSprites/warrior.png" id="4_svhm3"]
+[ext_resource type="Texture2D" uid="uid://bq4ja785mygtq" path="res://Assets/Characters/BoardSprites/knight.png" id="5_f0jbd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30i3t"]
 atlas = ExtResource("4_svhm3")
@@ -80,7 +80,7 @@ animations = [{
 }]
 
 [node name="BgPlains" type="ParallaxBackground"]
-script = ExtResource("1_kav0p")
+script = ExtResource("1_n8ndo")
 
 [node name="PlainsGroundBg" type="Sprite2D" parent="."]
 position = Vector2(579, 324)
@@ -100,14 +100,14 @@ motion_mirroring = Vector2(1150, 2.08165e-12)
 position = Vector2(579, 327)
 texture = ExtResource("3_f40gy")
 
-[node name="Warrior" type="AnimatedSprite2D" parent="."]
+[node name="Sprite1" type="AnimatedSprite2D" parent="."]
 position = Vector2(201, 414)
 scale = Vector2(4.89062, 4.32813)
 sprite_frames = SubResource("SpriteFrames_8u0es")
 animation = &"walk"
 flip_h = true
 
-[node name="Knight" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
 position = Vector2(297, 402)
 scale = Vector2(5.97656, 4.78125)
 sprite_frames = SubResource("SpriteFrames_43mn8")
