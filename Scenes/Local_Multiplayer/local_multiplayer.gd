@@ -24,33 +24,33 @@ func _ready():
 	# board.players[0].clear_fog([Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 1)])
 
 	var instance1 = hand_scene.instantiate()
-	instance1.position = Vector2(150, -50)
-	instance1.scale.x = 0.1
-	instance1.scale.y = 0.3
+	instance1.position = Vector2(106, 233)
+	instance1.scale.x = 0.15
+	instance1.scale.y = 0.2
 	%UI.add_child(instance1)
 	
 	var instance2 = hand_scene.instantiate()
-	instance2.position = Vector2(330, -50)
-	instance2.scale.x = 0.1
-	instance2.scale.y = 0.3
+	instance2.position = Vector2(283, 233)
+	instance2.scale.x = 0.15
+	instance2.scale.y = 0.2
 	%UI.add_child(instance2)
 	
 	var instance3 = hand_scene.instantiate()
-	instance3.position = Vector2(510, -50)
-	instance3.scale.x = 0.1
-	instance3.scale.y = 0.3
+	instance3.position = Vector2(460, 233)
+	instance3.scale.x = 0.15
+	instance3.scale.y = 0.2
 	%UI.add_child(instance3)
 	
 	var instance4 = hand_scene.instantiate()
-	instance4.position = Vector2(690, -50)
-	instance4.scale.x = 0.1
-	instance4.scale.y = 0.3
+	instance4.position = Vector2(637, 233)
+	instance4.scale.x = 0.15
+	instance4.scale.y = 0.2
 	%UI.add_child(instance4)
 
 	var instance5 = hand_scene.instantiate()
-	instance5.position = Vector2(870, -50)
-	instance5.scale.x = 0.1
-	instance5.scale.y = 0.3
+	instance5.position = Vector2(814, 233)
+	instance5.scale.x = 0.15
+	instance5.scale.y = 0.2
 	%UI.add_child(instance5)
 
 func hand():

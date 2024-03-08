@@ -65,6 +65,7 @@ expand_mode = 3
 [node name="HP" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -80,6 +81,7 @@ expand_mode = 3
 [node name="ATK" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -94,6 +96,7 @@ expand_mode = 3
 [node name="DEF" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -108,6 +111,7 @@ expand_mode = 3
 [node name="Move" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -122,6 +126,7 @@ expand_mode = 3
 [node name="Range" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -148,15 +153,19 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 150
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -181,7 +190,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Card_Image" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("7_6yorb")
 expand_mode = 2
@@ -201,7 +210,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 75
 text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu magna ipsum. Nam tempus erat nisi, eu gravida diam aliquam sed. Aliquam varius neque ut leo ultricies, at semper nisi.\""
 horizontal_alignment = 1
 vertical_alignment = 1
