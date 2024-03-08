@@ -20,7 +20,6 @@ FACTION BORDER COLORS:
 
 '''
 
-
 # STATS
 @onready var atk = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container/ATK
 @onready var def = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container/DEF
@@ -31,7 +30,6 @@ FACTION BORDER COLORS:
 
 # MAX 30 WORD DESCRIPTIONS
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	atk.text = str(card.attack)
@@ -40,9 +38,9 @@ func _ready():
 	range.text = str(card.attack_range)
 	move.text = str(card.movement)
 	card_name.text = card.name
+
 	print(card.name)
 
 	# match(card.type):
 	# 	Card.CardType.TROOP:
 	# 		bg.color = Color()
-

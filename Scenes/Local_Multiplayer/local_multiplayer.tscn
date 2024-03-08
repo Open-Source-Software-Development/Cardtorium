@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpjc8y8la6h8n"]
+[gd_scene load_steps=17 format=3 uid="uid://cpjc8y8la6h8n"]
 
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
@@ -9,8 +9,6 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/TerrainRenderer.gd" id="7_fqdo8"]
 [ext_resource type="Texture2D" uid="uid://b41gbib33us0y" path="res://Assets/Tiles/fog.png" id="7_gkb7q"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
-[ext_resource type="PackedScene" uid="uid://kspsv02i5iy1" path="res://Scenes/Card_Renderer/Card.tscn" id="9_un1lq"]
-[ext_resource type="Script" path="res://Scenes/Card_Renderer/card_renderer.gd" id="10_7e2ng"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd3i8"]
@@ -1397,17 +1395,11 @@ script = ExtResource("8_gitxl")
 
 [node name="GUI_Renderer" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" parent="GUI_Renderer" instance=ExtResource("9_un1lq")]
-offset_left = 279.0
-offset_top = 445.0
-offset_right = -401.0
-offset_bottom = 366.0
-scale = Vector2(0.305, 0.305)
-script = ExtResource("10_7e2ng")
-
 [node name="UI" type="Control" parent="GUI_Renderer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
+offset_top = 483.0
 offset_right = 1150.0
 offset_bottom = 650.0
 
