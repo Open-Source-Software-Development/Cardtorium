@@ -17,9 +17,6 @@ func _ready():
 	# Renders fog
 	var fog: TileMap = $FogRenderer
 	fog.setup(board)
-	# TEST
-	board.players[0].clear_fog([Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 1)])
-
 
 
 ## Renders a troop card by adding it to the scene tree

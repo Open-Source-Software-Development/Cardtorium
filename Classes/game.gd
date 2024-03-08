@@ -28,12 +28,20 @@ func _ready():
 	num_players = 2
 
 
+## Changes the terrain for an array of tiles
+func set_terrain(terrain: Board.Terrain, location: Array[Vector2i]):
+	for position in location:
+		board.tiles[position.x][position.y] = terrain
+	terrain_updated.emit(location, terrain)
+
+
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
 	match(card.type):
 		# Places a troop card
 		Card.CardType.TROOP:
 			var troop: Troop = Troop.new(card)
+			troop.owned_by = board.current_player
 			board.units[x][y] = troop
 			troop_placed.emit(troop, Vector2i(x, y))
 
