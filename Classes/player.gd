@@ -5,6 +5,8 @@ class_name Player
 
 ## Emitted when the player finishes drawing their cards
 signal cards_drawn(cards: Array[Card])
+## Emitted when one or more cards are removed from the hand
+signal cards_removed(old_cards: Array[Card], new_cards: Array[Card])
 ## Emitted when the player clears fog
 signal fog_cleared(tiles: Array[Vector2i])
 ## Emitted when the player loses vision
@@ -109,5 +111,9 @@ func shuffle_card(card: Card):
 ## Removes the nth card from the player's hand and shuffles it back
 ## into the deck
 func remove_from_hand(index: int):
+    var old_hand: Array[Card] = []
+    for card in hand:
+        old_hand.append(card)
     var card: Card = self.hand.pop_at(index)
+    cards_removed.emit(old_hand, hand)
     shuffle_card(card)

@@ -21,13 +21,9 @@ func _ready():
 	fog.setup(board)
 	# Sets up hand rendering
 	var hand_renderer = $GUI_Renderer/HandRenderer
-	hand_renderer.setup(board.players[board.current_player])
-	
-	# var instance5 = hand_scene.instantiate()
-	# instance5.position = Vector2(814, 233)
-	# instance5.scale.x = 0.15
-	# instance5.scale.y = 0.2
-	# %UI.add_child(instance5)
+	hand_renderer.connect_to_player(board.players[board.current_player])
+	board.players[0].begin_turn()
+
 
 ## Renders a troop card by adding it to the scene tree
 func render_troop(troop: Troop, pos: Vector2i):
