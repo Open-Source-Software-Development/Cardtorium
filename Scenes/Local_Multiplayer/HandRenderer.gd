@@ -6,6 +6,7 @@ var player: Player
 var XBOUND = [200, 952]
 var YPOS = 550
 var cards = {}
+signal card_selected(card: Card)
 
 ## Initializes the hand renderer by connecting it to a player's hand
 func connect_to_player(p: Player):
@@ -51,6 +52,8 @@ func on_card_clicked(card_index: int):
 	cards[card_index]["selected"] = true
 	cards[card_index]["node"].get_node("Focus").modulate.a = 1
 	cards[card_index]["node"].z_index = 1
+
+	emit_signal("card_selected", player.hand[card_index])
 	
 ## Removes a card from the player's hand
 func remove_cards(old_hand: Array[Card], new_hand: Array[Card]):

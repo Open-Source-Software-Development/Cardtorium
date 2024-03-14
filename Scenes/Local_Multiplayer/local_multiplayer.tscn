@@ -398,3 +398,5 @@ script = ExtResource("11_i2gk8")
 
 [connection signal="terrain_updated" from="Game" to="TerrainRenderer" method="render"]
 [connection signal="troop_placed" from="Game" to="." method="render_troop"]
+[connection signal="mouse_entered" from="GUI_Renderer/HandRenderer" to="Camera2D" method="_on_hand_renderer_mouse_entered"]
+[connection signal="mouse_exited" from="GUI_Renderer/HandRenderer" to="Camera2D" method="_on_hand_renderer_mouse_exited"]
