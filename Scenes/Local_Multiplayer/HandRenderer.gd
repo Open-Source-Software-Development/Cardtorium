@@ -5,8 +5,7 @@ var card_scene = preload ("res://Scenes/Card_Renderer/Card.tscn")
 var player: Player
 var XBOUND = [200, 952]
 var YPOS = 550
-
-var cards = []
+var cards = {}
 
 ## Initializes the hand renderer by connecting it to a player's hand
 func connect_to_player(p: Player):
@@ -30,16 +29,29 @@ func render_cards(hand: Array[Card]):
 	
 		rendered.card_focused.connect(self.on_card_focused)
 		rendered.card_unfocused.connect(self.on_card_unfocused)
-		cards.append(rendered)
+		rendered.card_clicked.connect(self.on_card_clicked)
+		cards[i] = {"node": rendered, "selected": false}
 
-## Bring card to front on hover
+# Bring card to front on hover
 func on_card_focused(card_index: int):
-	cards[card_index].z_index = 1
-
-## Send card to back on hover
+	cards[card_index]["node"].z_index = 1
+	
+## Send card to back on no hover
 func on_card_unfocused(card_index: int):
-	cards[card_index].z_index = 0
+	cards[card_index]["node"].z_index = 0
 
+## Select a card
+func on_card_clicked(card_index: int):
+	# Deselect all cards except the clicked one
+	for i in range(len(cards)):
+		if i != card_index:
+			cards[i]["selected"] = false
+			cards[i]["node"].get_node("Focus").modulate.a = 0
+			cards[i]["node"].z_index = 0
+	cards[card_index]["selected"] = true
+	cards[card_index]["node"].get_node("Focus").modulate.a = 1
+	cards[card_index]["node"].z_index = 1
+	
 ## Removes a card from the player's hand
 func remove_cards(old_hand: Array[Card], new_hand: Array[Card]):
 	# TODO: Add an animation here instead of just re-rendering the hand

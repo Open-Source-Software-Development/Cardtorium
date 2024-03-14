@@ -223,8 +223,11 @@ autowrap_mode = 3
 
 [node name="Focus" type="TextureButton" parent="."]
 layout_mode = 2
-texture_hover = ExtResource("9_ucqcp")
+toggle_mode = true
+keep_pressed_outside = true
+texture_pressed = ExtResource("9_ucqcp")
 stretch_mode = 0
 
 [connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
 [connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]
+[connection signal="pressed" from="Focus" to="." method="_on_focus_pressed"]

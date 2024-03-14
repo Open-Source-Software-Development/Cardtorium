@@ -5,6 +5,7 @@ var card: Card
 var card_index: int
 signal card_focused(card_index)
 signal card_unfocused(card_index)
+signal card_clicked(card_index)
 '''
 RARITY NAME COLORS:
 - COMMON = BLACK (#000000)
@@ -47,3 +48,5 @@ func _on_focus_mouse_entered():
 	emit_signal("card_focused", card_index)
 func _on_focus_mouse_exited():
 	emit_signal("card_unfocused", card_index)
+func _on_focus_pressed():
+	emit_signal("card_clicked", card_index)
