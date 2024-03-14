@@ -5,7 +5,8 @@ var card_scene = preload ("res://Scenes/Card_Renderer/Card.tscn")
 var player: Player
 var XBOUND = [200, 952]
 var YPOS = 550
-var cards = {}
+var cards := []
+
 signal card_selected(card: Card)
 
 ## Initializes the hand renderer by connecting it to a player's hand
@@ -16,6 +17,11 @@ func connect_to_player(p: Player):
 
 ## Renders the cards in a player's hand.
 func render_cards(hand: Array[Card]):
+
+	for card_node in cards:
+		card_node.queue_free()
+	cards.clear()
+
 	var cardsize = Vector2(1205, 1576)
 	var num_cards = len(hand)
 	var increment = float(XBOUND[1] - XBOUND[0]) / num_cards
@@ -31,29 +37,27 @@ func render_cards(hand: Array[Card]):
 		rendered.card_focused.connect(self.on_card_focused)
 		rendered.card_unfocused.connect(self.on_card_unfocused)
 		rendered.card_clicked.connect(self.on_card_clicked)
-		cards[i] = {"node": rendered, "selected": false}
+		cards.append(rendered)
 
-# Bring card to front on hover
+## Bring card to front on hover
 func on_card_focused(card_index: int):
-	cards[card_index]["node"].z_index = 1
-	
+	cards[card_index].z_index = 1
+
 ## Send card to back on no hover
 func on_card_unfocused(card_index: int):
-	cards[card_index]["node"].z_index = 0
+	cards[card_index].z_index = 0
 
 ## Select a card
 func on_card_clicked(card_index: int):
 	# Deselect all cards except the clicked one
 	for i in range(len(cards)):
 		if i != card_index:
-			cards[i]["selected"] = false
-			cards[i]["node"].get_node("Focus").modulate.a = 0
-			cards[i]["node"].z_index = 0
-	cards[card_index]["selected"] = true
-	cards[card_index]["node"].get_node("Focus").modulate.a = 1
-	cards[card_index]["node"].z_index = 1
+			cards[i].get_node("Focus").modulate.a = 0
+			cards[i].z_index = 0
+	cards[card_index].get_node("Focus").modulate.a = 1
+	cards[card_index].z_index = 1
 
-	emit_signal("card_selected", player.hand[card_index])
+	emit_signal("card_selected", card_index)
 	
 ## Removes a card from the player's hand
 func remove_cards(old_hand: Array[Card], new_hand: Array[Card]):
