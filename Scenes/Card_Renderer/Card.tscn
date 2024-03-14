@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kspsv02i5iy1"]
+[gd_scene load_steps=11 format=3 uid="uid://kspsv02i5iy1"]
 
 [ext_resource type="Script" path="res://Scenes/Card_Renderer/card_renderer.gd" id="1_mhkcl"]
 [ext_resource type="Texture2D" uid="uid://bl3xprvcul5w6" path="res://Assets/UI/hp.png" id="1_mrwpo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhu40yy3b7dly" path="res://Assets/UI/range.png" id="5_y3dqw"]
 [ext_resource type="Texture2D" uid="uid://cj8h30ho7pg0u" path="res://Assets/Characters/CardSprites/cardart_3.png" id="7_6yorb"]
 [ext_resource type="Texture2D" uid="uid://d00gieghcoraj" path="res://Assets/UI/cost.png" id="8_5c633"]
+[ext_resource type="Texture2D" uid="uid://dguastael2jjl" path="res://Assets/UI/Gold_Border.png" id="9_ucqcp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swcj5"]
 bg_color = Color(0.992157, 1, 0, 1)
@@ -34,10 +35,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_swcj5")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="Bg" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
@@ -219,3 +220,11 @@ text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu magna 
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+texture_hover = ExtResource("9_ucqcp")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
+[connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]

@@ -2,6 +2,9 @@ extends MarginContainer
 
 var card: Card
 
+var card_index: int
+signal card_focused(card_index)
+signal card_unfocused(card_index)
 '''
 RARITY NAME COLORS:
 - COMMON = BLACK (#000000)
@@ -30,11 +33,17 @@ FACTION BORDER COLORS:
 
 # MAX 30 WORD DESCRIPTIONS
 
-func setup(_card: Card):
+func setup(_card: Card, _card_index: int):
 	card = _card
+	card_index = _card_index
 	atk.text = str(card.attack)
 	def.text = str(card.defense)
 	hp.text = str(card.health)
 	range.text = str(card.attack_range)
 	move.text = str(card.movement)
 	card_name.text = card.name
+
+func _on_focus_mouse_entered():
+	emit_signal("card_focused", card_index)
+func _on_focus_mouse_exited():
+	emit_signal("card_unfocused", card_index)

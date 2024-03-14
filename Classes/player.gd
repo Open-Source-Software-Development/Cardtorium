@@ -15,7 +15,7 @@ signal fog_placed(tiles: Array[Vector2i])
 ## How many cities the player owns
 var cities: int
 ## How many cards a player can have in their hand
-var hand_size: int = 5
+var hand_size: int = 7
 ## How much territory the player owns
 var owned: int
 ## The player's local id. Is set by the game object
@@ -57,7 +57,6 @@ func _init(board_size: Vector2i, start_location: Vector2i, _deck: Array[Card]):
             discovered[x][y] = true
     deck = _deck
 
-
 ## Called right before the player's turn begins
 func begin_turn():
     # Increments resources
@@ -74,20 +73,17 @@ func begin_turn():
     # Lets the renderer know that it can do its thing
     self.cards_drawn.emit(drawn)
 
-
 ## Clears the fog from an array of tiles
 func clear_fog(tiles: Array[Vector2i]):
     for tile in tiles:
         self.discovered[tile.x][tile.y] = true
     fog_cleared.emit(tiles)
 
-
 ## Puts the fog back (may be used for a spell in the future)
 func add_fog(tiles: Array[Vector2i]):
     for tile in tiles:
         self.discovered[tile.x][tile.y] = false
     fog_placed.emit(tiles)
-
 
 ## Shuffles a card into the back of the player's deck
 func shuffle_card(card: Card):
@@ -106,7 +102,6 @@ func shuffle_card(card: Card):
         pos -= 1
     # Places the card at the location
     self.deck.insert(pos, card)
-
 
 ## Removes the nth card from the player's hand and shuffles it back
 ## into the deck
