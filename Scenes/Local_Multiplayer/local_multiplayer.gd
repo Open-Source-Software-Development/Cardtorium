@@ -8,6 +8,7 @@ const TILE_SIZE = 64
 var selected_index = -1
 var selected_tile: Vector2i = Vector2i()
 signal card_placed(card_index: int)
+@onready var move_renderer = $MoveRender
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,7 @@ func _ready():
 	# Renders the tiles
 	var terrain: TileMap = $TerrainRenderer
 	terrain.board = board
-	terrain.render_all()
+	# terrain.render_all()
 	# Renders fog
 	#var fog: TileMap = $FogRenderer
 	#fog.setup(board)
@@ -32,20 +33,41 @@ func _ready():
 	hand_renderer.card_selected.connect(self.on_card_selected)
 
 func on_card_selected(card_index: int):
-	selected_index = card_index
-
+	#selected_index = card_index
+	if selected_index == card_index:
+		# Deselect the card
+		selected_index = -1
+	else:
+		# Select the card
+		selected_index = card_index
+		
 func on_selected_tile(pos: Vector2i):
 	selected_tile = pos
 	check_and_place_card()
+
+	var tile_content = game.board.units[selected_tile.x][selected_tile.y]
+	if tile_content != null and tile_content is Troop:
+		var troop = tile_content as Troop
+		troop.build_graph(selected_tile.x, selected_tile.y, game.board)
+		move_renderer.clear_move_outlines() # Clear previous move outlines
+		move_renderer.draw_move_outlines(troop.move_graph.keys()) # Draw new move outlines
+	else:
+		move_renderer.clear_move_outlines() # Clear move outlines if not a troop
 
 ## Must first select card to place on a tile
 func check_and_place_card():
 	if selected_index != - 1:
 		if selected_tile != null:
+			var tile_content = game.board.units[selected_tile.x][selected_tile.y]
+			if tile_content != null and tile_content is Troop:
+				# Troop already exists on the selected tile, don't allow card placement
+				return
 			game.place_from_hand(selected_index, selected_tile.x, selected_tile.y)
 			selected_index = -1
 			selected_tile = Vector2i()
-			# emit_signal("card_placed", game.board.current_player)
+		else:
+			# Deselect any selected tile
+			selected_tile = Vector2i()
 
 ## Renders a troop card by adding it to the scene tree
 func render_troop(troop: Troop, pos: Vector2i):
