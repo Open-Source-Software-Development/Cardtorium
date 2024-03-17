@@ -3,6 +3,10 @@ extends Unit
 ## Class which represents a troop on the board.
 class_name Troop
 
+## troop's instance
+var inst = null
+## troop's position
+var pos: Vector2i = Vector2i()
 ## The troop id
 var id: int = 0
 ## Whether or not the troop has moved
