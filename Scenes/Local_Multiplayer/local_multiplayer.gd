@@ -59,13 +59,13 @@ func on_selected_tile(pos: Vector2i):
 		# defender
 		var troop = tile_content as Troop
 		move_renderer.clear_move_outlines() # Clear move outlines if not a troop
-		if active_unit is Troop: 
-			troop_attack(troop)
+		if active_unit is Troop and active_unit != troop: 
+			active_unit.troop_attack(troop)
 			active_unit = null
 	else:
 		move_renderer.clear_move_outlines() # Clear move outlines if not a troop
 		if active_unit is Troop: 
-			troop_move()
+			game.troop_move(active_unit, selected_tile)
 			active_unit = null
 
 ## Must first select card to place on a tile
@@ -90,31 +90,3 @@ func render_troop(troop: Troop, pos: Vector2i):
 	instance.position = Vector2(pos) * TILE_SIZE
 	add_child.call_deferred(instance)
 	troop.inst = instance
-
-func troop_move():
-	if selected_tile in active_unit.move_graph and not active_unit.has_moved:
-		#	clear the current tile
-		_clear_troop(active_unit)
-		#	put the troop on the new tile
-		game.board.units[selected_tile.x][selected_tile.y] = active_unit
-		render_troop(active_unit, Vector2i(selected_tile.x, selected_tile.y))
-		# TODO turns dont exist yet
-		# update movement
-		#active_unit.has_moved = true
-		
-func _clear_troop(troop: Troop):
-	game.board.units[troop.pos.x][troop.pos.y] = null
-	troop.inst.queue_free()
-
-func troop_attack(defender: Troop):
-	# active unit is the attacking troop
-	# TODO check if active_unit has attacked
-	# TODO get the stats of the active and defending units
-	# TODO calculations
-	# attack_force  = atk * curr_hp/max_hp
-	# defense_force = def * curr_hp/max_hp
-	# attack_dmg  = floor((atk_force/(atk_force+def_force))*atk)
-	# TODO if attack damage kills defender, clear it and end early 
-	# counter_dmg = floor((def_force/(atk_force+def_force))*def) 
-	# TODO if counter damage kills active_unit, clear it 
-	pass

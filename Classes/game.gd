@@ -72,5 +72,19 @@ func end_turn():
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw
 ## an error.
-func move_troop(from: Vector2i, to: Vector2i):
-	pass
+func troop_move(active_unit, selected_tile):
+	if selected_tile in active_unit.move_graph and not active_unit.has_moved:
+		#	clear the current tile
+		_clear_troop(active_unit)
+		#	put the troop on the new tile
+		board.units[selected_tile.x][selected_tile.y] = active_unit
+		#render_troop(active_unit, Vector2i(selected_tile.x, selected_tile.y))
+		troop_placed.emit(active_unit, Vector2i(selected_tile.x, selected_tile.y))
+		# TODO turns dont exist yet
+		# update movement
+		#active_unit.has_moved = true
+		
+func _clear_troop(troop: Troop):
+	board.units[troop.pos.x][troop.pos.y] = null
+	troop.inst.queue_free()
+

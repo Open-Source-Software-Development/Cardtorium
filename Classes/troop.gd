@@ -18,11 +18,14 @@ var base_stats: Card
 var move_graph
 ## Stores the troop's attributes
 var attributes: Array[TroopAttribute] = []
+## Stroes the troop's current health
+var curr_hp: int
 
 ## Initiallizes a troop object from a card.
 func _init(card: Card=null):
 	self.id = card.id
 	self.base_stats = card
+	self.curr_hp = self.base_stats.health
 	# Loads attributes
 	for attribute_id in self.base_stats.attributes:
 		# var attribute: TroopAttribute = load('res://Attributes/Troops/Logic/attribute_{0}.gd'.format({0:attribute_id})).new()
@@ -136,3 +139,43 @@ func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board
 		return - 1
 	# TODO: Check if there is an enemy nearby to apply zone-of-control
 	return max(strength - 1, 0)
+
+func troop_attack(defender: Troop):
+	# active unit is the attacking troop
+	# TODO check if active_unit has attacked
+	# get the stats of the active and defending units
+	var atk = self.base_stats.attack
+	var atk_max_hp = self.base_stats.health
+	var def = defender.base_stats.defense
+	var def_max_hp = defender.base_stats.health
+	#print(atk, atk_max_hp, def, def_max_hp)
+	# TODO calculations
+	var atk_force  = atk * float(self.curr_hp)/atk_max_hp
+	var def_force = def * float(defender.curr_hp)/def_max_hp
+	var attack_dmg  = floor((atk_force/(atk_force+def_force))*atk)
+	# Do the attack
+	print("Attack Damage:")
+	print(attack_dmg)
+	defender.curr_hp -= attack_dmg
+	if defender.curr_hp <= 0:
+		# TODO if attack damage kills defender, clear it and end early 
+		# do this via emitting a death signal
+		# TODO This is a hack, does not work generally
+		#defender.inst.queue_free()
+		pass
+
+	var counter_dmg = floor((def_force/(atk_force+def_force))*def)
+	self.curr_hp -= counter_dmg
+	print("Counter Damage:")
+	print(counter_dmg)
+	if self.curr_hp <= 0:
+		# TODO if counter damage kills active_unit, clear it 
+		# do this via emitting a death signal
+		# TODO This is a hack, does not work generally
+		#self.inst.queue_free()
+		pass
+	
+	print("Attacker (", self.base_stats.name, ") Health: ")
+	print(self.curr_hp)
+	print("Defender (", defender.base_stats.name, ") Health: ")
+	print(defender.curr_hp)

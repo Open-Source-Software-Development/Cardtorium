@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpjc8y8la6h8n"]
+[gd_scene load_steps=16 format=3 uid="uid://cpjc8y8la6h8n"]
 
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
@@ -12,41 +12,6 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSet" id="TileSet_m82yt"]
-
-[sub_resource type="GDScript" id="GDScript_4vhns"]
-script/source = "extends Control
-
-const TILE_SIZE = 64
-var move_outlines: Array = []
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Function to draw move outlines on the UI
-func draw_move_outlines(possible_moves: Array):
-	for move_pos in possible_moves:
-		var outline = draw_outline(move_pos)
-		move_outlines.append(outline)
-
-# Function to draw outline for a single tile position
-# Function to draw outline for a single tile position
-func draw_outline(tile_pos: Vector2i) -> ColorRect:
-	var outline = ColorRect.new()
-	#outline.rect_min_size = Vector2(TILE_SIZE, TILE_SIZE)  # Set width and height using Vector2
-	print(\"adding outline\")
-	outline.color = Color(0, 0, 1, 0.5) # Blue outline with transparency
-	#outline.rect_position = tile_pos * TILE_SIZE
-	add_child(outline)
-	return outline
-
-
-# Function to clear move outlines from the UI
-func clear_move_outlines():
-	for outline in move_outlines:
-		outline.queue_free()
-	move_outlines.clear()
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2ia"]
 texture = ExtResource("7_gkb7q")
@@ -437,14 +402,6 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 650.0
 script = ExtResource("9_bv7jf")
-
-[node name="MoveRenderer" type="Control" parent="GUI_Renderer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = SubResource("GDScript_4vhns")
 
 [node name="FogRenderer" type="TileMap" parent="."]
 z_index = 10
