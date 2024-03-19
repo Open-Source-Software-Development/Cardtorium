@@ -62,11 +62,6 @@ func build_graph(x: int, y: int, board: Board):
 		# Deep copies surround for the path
 		var to = Vector2i(surround.x, surround.y)
 		var path = [start, to]
-		# NOT SURE IF THIS IS NEEDED WHEN GOING AGAINST OPPONENT, BUT PREVENTS PLACING ON OWN TROOP
-		# Check if the destination tile contains another troop, skip if it does
-		var unit_at_destination = board.units[to.x][to.y]
-		if unit_at_destination != null and unit_at_destination is Troop:
-			continue
 		# Adds nodes to the frontier
 		frontier.append(to)
 		frontier_data[to] = [new_strength, 0, path]
@@ -122,6 +117,10 @@ func build_graph(x: int, y: int, board: Board):
 ## -1 indicates that the unit cannot move to [param to]. Non-integer returns are allowed.
 func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board) -> float:
 	var dest_type: Board.Terrain = board.tiles[to.x][to.y]
+	# Check if the destination tile contains another troop, skip if it does
+	var unit_at_destination = board.units[to.x][to.y]
+	if unit_at_destination != null and unit_at_destination is Troop:
+		return - 1
 	# Checks if any attributes override the behavior of calc_move_cost
 	for attr in attributes:
 		var value = attr.calc_move_cost(strength, from, to, board)

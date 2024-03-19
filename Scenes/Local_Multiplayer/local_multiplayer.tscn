@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpjc8y8la6h8n"]
+[gd_scene load_steps=18 format=3 uid="uid://cpjc8y8la6h8n"]
 
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
@@ -6,8 +6,9 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/TerrainRenderer.gd" id="7_fqdo8"]
 [ext_resource type="Texture2D" uid="uid://b41gbib33us0y" path="res://Assets/Tiles/fog.png" id="7_gkb7q"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
-[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/outline.png" id="9_bmj2b"]
+[ext_resource type="Texture2D" uid="uid://b52v80k5bqxl5" path="res://Assets/Tiles/opaque-outline.png" id="9_387iw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/HandRenderer.gd" id="9_bv7jf"]
+[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/Tiles/outline.png" id="10_j1qfw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/MoveRender.gd" id="11_0mh2y"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
@@ -357,15 +358,20 @@ terrain_set_0/terrain_0/name = "Fog"
 terrain_set_0/terrain_0/color = Color(0.709804, 0, 0.301961, 1)
 sources/0 = SubResource("TileSetAtlasSource_hh2ia")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0m1ov"]
-texture = ExtResource("9_bmj2b")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quc2k"]
+texture = ExtResource("9_387iw")
 texture_region_size = Vector2i(64, 64)
-0:0/next_alternative_id = 3
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2u6sa"]
+texture = ExtResource("10_j1qfw")
+texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yjrn2"]
 tile_size = Vector2i(64, 64)
-sources/1 = SubResource("TileSetAtlasSource_0m1ov")
+sources/0 = SubResource("TileSetAtlasSource_quc2k")
+sources/1 = SubResource("TileSetAtlasSource_2u6sa")
 
 [node name="LocalMultiplayer" type="Node2D"]
 z_index = 10
@@ -414,7 +420,7 @@ top_level = true
 z_index = 9
 tile_set = SubResource("TileSet_yjrn2")
 format = 2
-layer_0/z_index = 11
+layer_0/z_index = 9
 script = ExtResource("11_0mh2y")
 
 [connection signal="terrain_updated" from="Game" to="TerrainRenderer" method="render"]

@@ -6,7 +6,8 @@ var player: Player
 var XBOUND = [200, 952]
 var YPOS = 550
 var cards := []
-
+var selected_index = -1
+var card_clicked = false
 signal card_selected(card: Card)
 
 ## Initializes the hand renderer by connecting it to a player's hand
@@ -41,14 +42,23 @@ func render_cards(hand: Array[Card]):
 
 ## Bring card to front on hover
 func on_card_focused(card_index: int):
-	cards[card_index].z_index = 1
+	if not card_clicked:
+		cards[card_index].z_index = 1
 
 ## Send card to back on no hover
 func on_card_unfocused(card_index: int):
-	cards[card_index].z_index = 0
+	if not card_clicked:
+		cards[card_index].z_index = 0
 
 ## Select a card
 func on_card_clicked(card_index: int):
+	# Deselect the card if it's already selected
+	if card_index == selected_index:
+		selected_index = -1
+		card_clicked = false
+		return
+
+	card_clicked = true
 	# Deselect all cards except the clicked one
 	for i in range(len(cards)):
 		if i != card_index:

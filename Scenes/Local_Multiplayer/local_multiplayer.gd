@@ -35,13 +35,7 @@ func _ready():
 	hand_renderer.card_selected.connect(self.on_card_selected)
 
 func on_card_selected(card_index: int):
-	#selected_index = card_index
-	if selected_index == card_index:
-		# Deselect the card
-		selected_index = -1
-	else:
-		# Select the card
-		selected_index = card_index
+	selected_index = card_index
 		
 func on_selected_tile(pos: Vector2i):
 	selected_tile = pos
@@ -53,7 +47,7 @@ func on_selected_tile(pos: Vector2i):
 		troop.pos = selected_tile
 		troop.build_graph(selected_tile.x, selected_tile.y, game.board)
 		move_renderer.clear_move_outlines() # Clear previous move outlines
-		move_renderer.draw_move_outlines(troop.move_graph.keys()) # Draw new move outlines
+		move_renderer.draw_move_outlines(troop.move_graph.keys(), selected_tile, game.board.SIZE) # Draw move outlines
 		active_unit = troop
 	elif tile_content != null and tile_content is Troop:
 		# defender
