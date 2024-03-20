@@ -11,6 +11,8 @@ var pos: Vector2i = Vector2i()
 var id: int = 0
 ## Whether or not the troop has moved
 var has_moved: bool = false
+## Whether or not the troop has attacked
+var has_atkd: bool = false
 ## The base stats of the troop.
 ## WARNING: Do not modify!
 var base_stats: Card
@@ -142,13 +144,15 @@ func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board
 func troop_attack(defender: Troop):
 	# active unit is the attacking troop
 	# TODO check if active_unit has attacked
+	if has_atkd:
+		return
 	# get the stats of the active and defending units
 	var atk = self.base_stats.attack
 	var atk_max_hp = self.base_stats.health
 	var def = defender.base_stats.defense
 	var def_max_hp = defender.base_stats.health
 	#print(atk, atk_max_hp, def, def_max_hp)
-	# TODO calculations
+	# calculations
 	var atk_force  = atk * float(self.curr_hp)/atk_max_hp
 	var def_force = def * float(defender.curr_hp)/def_max_hp
 	var attack_dmg  = floor((atk_force/(atk_force+def_force))*atk)
