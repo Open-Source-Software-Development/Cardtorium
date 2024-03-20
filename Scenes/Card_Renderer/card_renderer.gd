@@ -1,5 +1,5 @@
 extends MarginContainer
-
+var is_selected = false
 var card: Card
 
 var card_index: int
@@ -50,12 +50,10 @@ func setup(_card: Card, _card_index: int):
 
 ## Mouse hover on card
 func _on_focus_mouse_entered():
-	emit_signal("card_focused", card_index)
-
+	card_focused.emit(card_index)
 ## Mouse hover off card
 func _on_focus_mouse_exited():
-	emit_signal("card_unfocused", card_index)
-
+	card_unfocused.emit(card_index)
 ## Mouse click on card
 func _on_focus_pressed():
-	emit_signal("card_clicked", card_index)
+	card_clicked.emit(card_index)
