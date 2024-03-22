@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpjc8y8la6h8n"]
+[gd_scene load_steps=20 format=3 uid="uid://cpjc8y8la6h8n"]
 
 [ext_resource type="Script" path="res://Classes/game.gd" id="1_cv5ps"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/local_multiplayer.gd" id="1_w84yu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/HandRenderer.gd" id="9_bv7jf"]
 [ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/outline.png" id="10_j1qfw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/MoveRender.gd" id="11_0mh2y"]
+[ext_resource type="Texture2D" uid="uid://bfwcvluxqghk2" path="res://Assets/Tiles/thick-outline.png" id="11_bs2bu"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSet" id="TileSet_m82yt"]
@@ -368,10 +369,16 @@ texture = ExtResource("10_j1qfw")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ng1c"]
+texture = ExtResource("11_bs2bu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_yjrn2"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_quc2k")
 sources/1 = SubResource("TileSetAtlasSource_2u6sa")
+sources/2 = SubResource("TileSetAtlasSource_8ng1c")
 
 [node name="LocalMultiplayer" type="Node2D"]
 z_index = 10
@@ -409,6 +416,26 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 650.0
 script = ExtResource("9_bv7jf")
+
+[node name="Control" type="Control" parent="GUI_Renderer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 548.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI_Renderer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GUI_Renderer/Control/MarginContainer"]
+layout_mode = 2
 
 [node name="FogRenderer" type="TileMap" parent="."]
 z_index = 10
