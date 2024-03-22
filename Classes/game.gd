@@ -31,17 +31,15 @@ func _ready():
 	board.setup(width, height, 2)
 	num_players = 2
 
-
 ## Changes the terrain for an array of tiles
 func set_terrain(terrain: Board.Terrain, location: Array[Vector2i]):
 	for position in location:
 		board.tiles[position.x][position.y] = terrain
 	terrain_updated.emit(location, terrain)
 
-
 ## Takes a card as input, and places that card at position x, y.
 func place_card(card: Card, x: int, y: int):
-	match(card.type):
+	match (card.type):
 		# Places a troop card
 		Card.CardType.TROOP:
 			var troop: Troop = Troop.new(self, card)
@@ -50,14 +48,12 @@ func place_card(card: Card, x: int, y: int):
 			troop.pos = Vector2i(x, y)
 			troop_placed.emit(troop, Vector2i(x, y))
 
-
 ## Places the nth card in the player's hand onto the board at position x, y
 func place_from_hand(index: int, x: int, y: int):
 	var player: Player = board.players[board.current_player]
 	var card: Card = player.hand[index]
 	player.remove_from_hand(index)
 	self.place_card(card, x, y)
-
 
 ## Goes to the next player's turn
 func end_turn():
@@ -69,8 +65,12 @@ func end_turn():
 		board.current_player = 0
 		board.turns += 1
 	# Sets next player up to begin their turn
-	board.players[board.current_player].begin_turn()
 
+	print("end turn clicked")
+	print(board.current_player)
+	print(board.turns)
+
+	board.players[board.current_player].begin_turn()
 
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw
@@ -85,7 +85,6 @@ func troop_move(troop: Troop, tile: Vector2i):
 	# Emits the move signal
 	var path: Array = troop.move_graph[tile]
 	troop_moved.emit(troop, path)
-
 
 ## Removes a unit from the board
 func remove_unit(unit: Unit):
