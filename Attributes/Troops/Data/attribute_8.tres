@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://m0p04ppol3u5"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_puo36"]
+
+[resource]
+script = ExtResource("1_puo36")
+name = "Survivalist"
+description = "No movement penalty from forest tiles"
+id = 8
+abbreviation = "SRVLST"

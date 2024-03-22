@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://bn8tp8rkk3ywe"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_dfymc"]
+
+[resource]
+script = ExtResource("1_dfymc")
+name = "Sneak"
+description = "Ignores enemy zone-of-control"
+id = 11
+abbreviation = "SNEAK"

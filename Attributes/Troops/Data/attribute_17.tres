@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://btfqxyesp248o"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_d7mt5"]
+
+[resource]
+script = ExtResource("1_d7mt5")
+name = "Initiative"
+description = "Can perform an action after moving"
+id = 17
+abbreviation = "INITVE"

@@ -42,6 +42,7 @@ func _get_surrounding(center: Vector2i, radius: int) -> Array[Vector2i]:
 	var output: Array[Vector2i] = []
 	for x_off in range( - radius, radius + 1):
 		for y_off in range( - radius, radius + 1):
+
 			if x_off == 0 and y_off == 0:
 				continue
 			output.append(center + Vector2i(x_off, y_off))

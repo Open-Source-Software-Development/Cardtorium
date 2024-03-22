@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://2x0u7eawpbni"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_c4q31"]
+
+[resource]
+script = ExtResource("1_c4q31")
+name = "Surge"
+description = "Perform an attack that damages units in a 2-tile radius; once used this unit cannot act for 3 turns"
+id = 14
+abbreviation = "SURGE"

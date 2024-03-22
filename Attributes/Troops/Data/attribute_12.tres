@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://dp6ul2ilggub8"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_effe1"]
+
+[resource]
+script = ExtResource("1_effe1")
+name = "Lightning"
+description = "Attacks become AoE if used on water tiles"
+id = 12
+abbreviation = "LITNIN"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3 uid="uid://cmsqham2r1lyc"]
+
+[ext_resource type="Script" path="res://Classes/attribute.gd" id="1_tqtab"]
+
+[resource]
+script = ExtResource("1_tqtab")
+name = "Fortify"
+description = "Gets a defense bonus from defendable structures"
+id = 2
+abbreviation = "FORTFY"
