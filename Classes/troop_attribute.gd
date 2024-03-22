@@ -20,7 +20,14 @@ func on_moved(from: Vector2i, to: Vector2i):
 
 ## Virtual function which overrides movement costs.
 ## Overrides to this function can return a non-null value to change the move calculation.
-## Otherwise, returning null uses the default tropp calculation.
+## Otherwise, returning null uses the default troop calculation.
 ## For information on the parameters, see [method Troop._calc_move_cost]
 func calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board):
+    return null
+
+
+## Virtual function which overrides fog clearing.
+## Overrides to this function can return a non-null value to change the fog clearing.
+## Otherwise, returning null uses the default.
+func clear_fog(pos: Vector2i):
     return null

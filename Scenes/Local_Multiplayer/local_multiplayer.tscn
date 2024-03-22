@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSet" id="TileSet_m82yt"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2ia"]
 texture = ExtResource("7_gkb7q")
 texture_region_size = Vector2i(64, 64)

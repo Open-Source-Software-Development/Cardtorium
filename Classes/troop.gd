@@ -18,6 +18,7 @@ var defense: int
 ## Movement of the card
 var movement: int
 
+
 ## Initiallizes a troop object from a card.
 func _init(_game: Game, card: Card=null):
 	self.game = _game
@@ -36,6 +37,29 @@ func _init(_game: Game, card: Card=null):
 		# attributes.append(attribute)
 		pass
 
+
+## Clears fog in a radius around the card
+func clear_fog():
+	var clear_tiles: Array[Vector2i] = []
+	var temp = null
+	for attribute in attributes:
+		temp = attribute.clear_fog(pos)
+		if temp != null:
+			break
+	if temp == null:
+		for x_off in range(-1, 2):
+			for y_off in range(-1, 2):
+				var tile: Vector2i = pos + Vector2i(x_off, y_off)
+				if tile.x < 0 or tile.y < 0:
+					continue
+				elif tile.x >= game.board.SIZE.x or tile.y >= game.board.SIZE.y:
+					continue
+				clear_tiles.append(tile)
+	else:
+		for tile in temp:
+			clear_tiles.append(tile as Vector2i)
+	game.board.players[owned_by].clear_fog(clear_tiles)
+
 ## Helper function which returns all tiles within a certain
 ## radius of the center.
 func _get_surrounding(center: Vector2i, radius: int) -> Array[Vector2i]:
@@ -47,6 +71,7 @@ func _get_surrounding(center: Vector2i, radius: int) -> Array[Vector2i]:
 				continue
 			output.append(center + Vector2i(x_off, y_off))
 	return output
+
 
 ## Builds a graph of the tiles that the unit can move to.
 func build_graph(x: int, y: int, board: Board):
@@ -103,6 +128,7 @@ func build_graph(x: int, y: int, board: Board):
 			frontier_data[to] = [new_strength, new_dist, new_path]
 	self.move_graph = graph
 
+
 ## Internal function which determines the cost of moving from a tile to a tile.[br][br]
 ##
 ## This is used in [method build_graph] to determine where a unit can move to. Attributes which
@@ -141,7 +167,6 @@ func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board
 		return - 1
 	# TODO: Check if there is an enemy nearby to apply zone-of-control
 	return max(strength - 1, 0)
-
 
 
 ## Called when the unit is attacked
