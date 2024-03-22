@@ -3,31 +3,31 @@ extends Unit
 ## Class which represents a troop on the board.
 class_name Troop
 
-## troop's instance
-var inst = null
-## troop's position
-var pos: Vector2i = Vector2i()
 ## The troop id
 var id: int = 0
 ## Whether or not the troop has moved
 var has_moved: bool = false
 ## Whether or not the troop has attacked
 var has_atkd: bool = false
-## The base stats of the troop.
-## WARNING: Do not modify!
-var base_stats: Card
 ## Graph of tiles that the troop can move to.
-var move_graph
+var move_graph = null
 ## Stores the troop's attributes
 var attributes: Array[TroopAttribute] = []
-## Stroes the troop's current health
-var curr_hp: int
+## Defense of the card
+var defense: int
+## Movement of the card
+var movement: int
 
 ## Initiallizes a troop object from a card.
-func _init(card: Card=null):
+func _init(_game: Game, card: Card=null):
+	self.game = _game
 	self.id = card.id
 	self.base_stats = card
-	self.curr_hp = self.base_stats.health
+	attack = base_stats.attack
+	defense = base_stats.defense
+	movement = base_stats.movement
+	rng = base_stats.attack_range
+	health = base_stats.health
 	# Loads attributes
 	for attribute_id in self.base_stats.attributes:
 		# var attribute: TroopAttribute = load('res://Attributes/Troops/Logic/attribute_{0}.gd'.format({0:attribute_id})).new()
@@ -141,44 +141,42 @@ func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board
 	# TODO: Check if there is an enemy nearby to apply zone-of-control
 	return max(strength - 1, 0)
 
-func troop_attack(defender: Troop):
-	# active unit is the attacking troop
-	# TODO check if active_unit has attacked
+
+
+## Called when the unit is attacked
+func being_attacked(attacker: Unit, atk: int, attack_force: float) -> int:
+	# Calculates your defense force
+	var def_force = self.defense * float(health)/float(base_stats.health)
+	# Damages the unit
+	var damage = floor((attack_force/(attack_force+def_force))*atk)
+	health -= damage
+	# If the troop is dead, then it dies
+	if health <= 0:
+		health = 0
+		game.remove_unit(self)
+		return 0
+	# Calculates counter damage
+	var counter_damage: int = floor((def_force/(attack_force+def_force))*defense)
+	return counter_damage
+
+
+## Attacks another unit
+func attack_unit(defender: Unit):
 	if has_atkd:
 		return
-	# get the stats of the active and defending units
-	var atk = self.base_stats.attack
-	var atk_max_hp = self.base_stats.health
-	var def = defender.base_stats.defense
-	var def_max_hp = defender.base_stats.health
-	#print(atk, atk_max_hp, def, def_max_hp)
-	# calculations
-	var atk_force  = atk * float(self.curr_hp)/atk_max_hp
-	var def_force = def * float(defender.curr_hp)/def_max_hp
-	var attack_dmg  = floor((atk_force/(atk_force+def_force))*atk)
-	# Do the attack
-	print("Attack Damage:")
-	print(attack_dmg)
-	defender.curr_hp -= attack_dmg
-	if defender.curr_hp <= 0:
-		# TODO if attack damage kills defender, clear it and end early 
-		# do this via emitting a death signal
-		# TODO This is a hack, does not work generally
-		#defender.inst.queue_free()
-		pass
-
-	var counter_dmg = floor((def_force/(atk_force+def_force))*def)
-	self.curr_hp -= counter_dmg
-	print("Counter Damage:")
-	print(counter_dmg)
-	if self.curr_hp <= 0:
-		# TODO if counter damage kills active_unit, clear it 
-		# do this via emitting a death signal
-		# TODO This is a hack, does not work generally
-		#self.inst.queue_free()
-		pass
-	
-	print("Attacker (", self.base_stats.name, ") Health: ")
-	print(self.curr_hp)
-	print("Defender (", defender.base_stats.name, ") Health: ")
-	print(defender.curr_hp)
+	# DEBUG: Remove later
+	print('Before:')
+	print("Attacker: {0} HP".format({0:health}))
+	print("Defender: {0} HP".format({0:defender.health}))
+	print()
+	var atk_force  = attack * float(self.health)/float(base_stats.health)
+	health -= defender.being_attacked(self, attack, atk_force)
+	# If the troop is dead, then it dies
+	if health <= 0:
+		health = 0
+		game.remove_unit(self)
+	# DEBUG: Remove later
+	print('After:')
+	print("Attacker: {0} HP".format({0:health}))
+	print("Defender: {0} HP".format({0:defender.health}))
+	print()

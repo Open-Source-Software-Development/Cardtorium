@@ -9,7 +9,6 @@ var selected_index = -1
 var selected_tile: Vector2i = Vector2i()
 signal card_placed(card_index: int)
 @onready var move_renderer = $MoveRender
-#@onready var ter_renderer = $TerrainRenderer
 var active_unit = null
 
 # Called when the node enters the scene tree for the first time.
@@ -44,7 +43,6 @@ func on_selected_tile(pos: Vector2i):
 	var tile_content = game.board.units[selected_tile.x][selected_tile.y]
 	if tile_content != null and tile_content is Troop and active_unit == null:
 		var troop = tile_content as Troop
-		troop.pos = selected_tile
 		troop.build_graph(selected_tile.x, selected_tile.y, game.board)
 		move_renderer.clear_move_outlines() # Clear previous move outlines
 		move_renderer.draw_move_outlines(troop.move_graph.keys(), selected_tile, game.board.SIZE) # Draw move outlines
@@ -54,10 +52,16 @@ func on_selected_tile(pos: Vector2i):
 		var troop = tile_content as Troop
 		move_renderer.clear_move_outlines() # Clear move outlines if not a troop
 		if active_unit is Troop and active_unit != troop: 
-			active_unit.troop_attack(troop)
+			active_unit.attack_unit(troop)
 			active_unit = null
-	else:
-		move_renderer.clear_move_outlines() # Clear move outlines if not a troop
+	elif active_unit != null:
+		# Checks if the move is valid
+		if active_unit.move_graph == null:
+			return
+		elif selected_tile not in active_unit.move_graph:
+			return
+		# Clears the move outlines
+		move_renderer.clear_move_outlines()
 		if active_unit is Troop: 
 			game.troop_move(active_unit, selected_tile)
 			active_unit = null
@@ -80,7 +84,6 @@ func check_and_place_card():
 ## Renders a troop card by adding it to the scene tree
 func render_troop(troop: Troop, pos: Vector2i):
 	var instance = troop_scene.instantiate()
-	instance.prepare_for_render(troop)
+	instance.prepare_for_render(troop, game)
 	instance.position = Vector2(pos) * TILE_SIZE
 	add_child.call_deferred(instance)
-	troop.inst = instance

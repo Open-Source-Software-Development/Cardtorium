@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
 [ext_resource type="Texture2D" uid="uid://b52v80k5bqxl5" path="res://Assets/Tiles/opaque-outline.png" id="9_387iw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/HandRenderer.gd" id="9_bv7jf"]
-[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/Tiles/outline.png" id="10_j1qfw"]
+[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/outline.png" id="10_j1qfw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/MoveRender.gd" id="11_0mh2y"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
@@ -376,6 +376,7 @@ sources/1 = SubResource("TileSetAtlasSource_2u6sa")
 [node name="LocalMultiplayer" type="Node2D"]
 z_index = 10
 script = ExtResource("1_w84yu")
+metadata/_edit_horizontal_guides_ = [-128.0]
 
 [node name="Game" type="Node" parent="."]
 script = ExtResource("1_cv5ps")
