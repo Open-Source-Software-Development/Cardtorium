@@ -6,9 +6,10 @@ var player: Player
 var XBOUND = [200, 952]
 var YPOS = 550
 var cards := []
-var selected_index = -1
-var card_clicked = false
+var card_history := [] # Keep track of last card and current card selected
+var clicks = 0
 signal card_selected(card: Card)
+var cardsize = Vector2(1205, 1576)
 
 ## Initializes the hand renderer by connecting it to a player's hand
 func connect_to_player(p: Player):
@@ -23,7 +24,6 @@ func render_cards(hand: Array[Card]):
 		card_node.queue_free()
 	cards.clear()
 
-	var cardsize = Vector2(1205, 1576)
 	var num_cards = len(hand)
 	var increment = float(XBOUND[1] - XBOUND[0]) / num_cards
 	var xpos = XBOUND[0] + increment / 2
@@ -40,35 +40,39 @@ func render_cards(hand: Array[Card]):
 		rendered.card_clicked.connect(self.on_card_clicked)
 		cards.append(rendered)
 
-## Bring card to front on hover
 func on_card_focused(card_index: int):
-	if not card_clicked:
+	if not cards[card_index].is_selected:
 		cards[card_index].z_index = 1
+		cards[card_index].position.y = (YPOS - (cardsize.y * 0.12) / 2) - 100
 
-## Send card to back on no hover
 func on_card_unfocused(card_index: int):
-	if not card_clicked:
+	if not cards[card_index].is_selected:
 		cards[card_index].z_index = 0
+		cards[card_index].position.y = YPOS - (cardsize.y * 0.12) / 2
 
-## Select a card
 func on_card_clicked(card_index: int):
-	# Deselect the card if it's already selected
-	if card_index == selected_index:
-		selected_index = -1
-		card_clicked = false
-		return
+	if cards[card_index].is_selected:
+		deselect_card(card_index)
+	else:
+		card_history.append(card_index)
+		select_card(card_index)
 
-	card_clicked = true
-	# Deselect all cards except the clicked one
-	for i in range(len(cards)):
-		if i != card_index:
-			cards[i].get_node("Focus").modulate.a = 0
-			cards[i].z_index = 0
+func select_card(card_index: int):
+	if card_history.size() > 1:
+		deselect_card(card_history.pop_front())
+
+	cards[card_index].is_selected = true
 	cards[card_index].get_node("Focus").modulate.a = 1
+	cards[card_index].position.y = (YPOS - (cardsize.y * 0.12) / 2) - 100
 	cards[card_index].z_index = 1
+	card_selected.emit(card_index)
 
-	emit_signal("card_selected", card_index)
-	
+func deselect_card(card_index: int):
+	cards[card_index].is_selected = false
+	cards[card_index].get_node("Focus").modulate.a = 0
+	cards[card_index].z_index = 0
+	cards[card_index].position.y = YPOS - (cardsize.y * 0.12) / 2
+
 ## Removes a card from the player's hand
 func remove_cards(old_hand: Array[Card], new_hand: Array[Card]):
 	# TODO: Add an animation here instead of just re-rendering the hand

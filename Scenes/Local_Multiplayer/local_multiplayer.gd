@@ -9,6 +9,8 @@ var selected_index = -1
 var selected_tile: Vector2i = Vector2i()
 signal card_placed(card_index: int)
 @onready var move_renderer = $MoveRender
+@onready var hand_renderer = $GUI_Renderer/HandRenderer
+#@onready var ter_renderer = $TerrainRenderer
 var active_unit = null
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +27,6 @@ func _ready():
 	var fog: TileMap = $FogRenderer
 	fog.setup(board)
 	# Sets up hand rendering
-	var hand_renderer = $GUI_Renderer/HandRenderer
 	hand_renderer.connect_to_player(board.players[board.current_player])
 	board.players[0].begin_turn()
 
@@ -45,7 +46,7 @@ func on_selected_tile(pos: Vector2i):
 		var troop = tile_content as Troop
 		troop.build_graph(selected_tile.x, selected_tile.y, game.board)
 		move_renderer.clear_move_outlines() # Clear previous move outlines
-		move_renderer.draw_move_outlines(troop.move_graph.keys(), selected_tile, game.board.SIZE) # Draw move outlines
+		move_renderer.draw_move_outlines(troop.move_graph.keys(), selected_tile) # Draw move outlines
 		active_unit = troop
 	elif tile_content != null and tile_content is Troop:
 		# defender
