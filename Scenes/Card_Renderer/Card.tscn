@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://kspsv02i5iy1"]
+[gd_scene load_steps=13 format=3 uid="uid://kspsv02i5iy1"]
 
+[ext_resource type="Script" path="res://Scenes/Card_Renderer/card_renderer.gd" id="1_mhkcl"]
 [ext_resource type="Texture2D" uid="uid://bl3xprvcul5w6" path="res://Assets/UI/hp.png" id="1_mrwpo"]
 [ext_resource type="Texture2D" uid="uid://c4488nf15ellb" path="res://Assets/UI/attack.png" id="2_nnt1j"]
 [ext_resource type="Texture2D" uid="uid://bex7eab725l2p" path="res://Assets/UI/def.png" id="3_nd038"]
@@ -7,20 +8,30 @@
 [ext_resource type="Texture2D" uid="uid://dhu40yy3b7dly" path="res://Assets/UI/range.png" id="5_y3dqw"]
 [ext_resource type="Texture2D" uid="uid://cj8h30ho7pg0u" path="res://Assets/Characters/CardSprites/cardart_3.png" id="7_6yorb"]
 [ext_resource type="Texture2D" uid="uid://d00gieghcoraj" path="res://Assets/UI/cost.png" id="8_5c633"]
+[ext_resource type="Texture2D" uid="uid://dguastael2jjl" path="res://Assets/UI/Gold_Border.png" id="9_ucqcp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swcj5"]
 bg_color = Color(0.992157, 1, 0, 1)
 
+[sub_resource type="ImageTexture" id="ImageTexture_mf2d0"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_h60e8"]
+
 [node name="MarginContainer" type="MarginContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(400, 500)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -680.0
-offset_bottom = -79.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 629.0
+offset_bottom = 1243.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mhkcl")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
@@ -28,10 +39,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_swcj5")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="Bg" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
@@ -63,6 +74,7 @@ expand_mode = 3
 [node name="HP" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -78,6 +90,7 @@ expand_mode = 3
 [node name="ATK" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -92,6 +105,7 @@ expand_mode = 3
 [node name="DEF" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -106,6 +120,7 @@ expand_mode = 3
 [node name="Move" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -120,6 +135,7 @@ expand_mode = 3
 [node name="Range" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "30"
 horizontal_alignment = 1
 
@@ -146,15 +162,19 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Name" type="Label" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 130
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -179,7 +199,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Card_Image" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("7_6yorb")
 expand_mode = 2
@@ -199,8 +219,20 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 75
 text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu magna ipsum. Nam tempus erat nisi, eu gravida diam aliquam sed. Aliquam varius neque ut leo ultricies, at semper nisi.\""
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("ImageTexture_mf2d0")
+texture_disabled = SubResource("ImageTexture_h60e8")
+texture_focused = ExtResource("9_ucqcp")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
+[connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]
+[connection signal="pressed" from="Focus" to="." method="_on_focus_pressed"]

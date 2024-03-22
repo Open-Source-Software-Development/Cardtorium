@@ -1,6 +1,14 @@
-extends ColorRect
+extends MarginContainer
+var is_selected = false
+var card: Card
 
-@onready var card: Card = load("res://Cards/Troops/test.tres")
+var card_index: int
+signal card_focused(card_index)
+signal card_unfocused(card_index)
+signal card_clicked(card_index)
+
+# Add a dictionary to store whether a card is rendered on a tile
+var cards_on_tiles = {}
 
 '''
 RARITY NAME COLORS:
@@ -20,21 +28,19 @@ FACTION BORDER COLORS:
 
 '''
 
-
 # STATS
-@onready var atk = $ATK
-@onready var def = $DEF
-@onready var hp = $HP
-@onready var range = $Range
-@onready var move = $Move
-@onready var card_name = $Name
-@onready var bg = get_tree().get_root().get_node("Card")
+@onready var atk = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/ATK_Container/ATK
+@onready var def = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/DEF_Container/DEF
+@onready var hp = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/HP_Container/HP
+@onready var range = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/RANGE_Container/Range
+@onready var move = $MarginContainer2/VBoxContainer/MarginContainer2/Stat_Container/MOVE_Container/Move
+@onready var card_name = $MarginContainer2/VBoxContainer/Name
 
 # MAX 30 WORD DESCRIPTIONS
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func setup(_card: Card, _card_index: int):
+	card = _card
+	card_index = _card_index
 	atk.text = str(card.attack)
 	def.text = str(card.defense)
 	hp.text = str(card.health)
@@ -42,11 +48,12 @@ func _ready():
 	move.text = str(card.movement)
 	card_name.text = card.name
 
-	# match(card.type):
-	# 	Card.CardType.TROOP:
-	# 		bg.color = Color()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+## Mouse hover on card
+func _on_focus_mouse_entered():
+	card_focused.emit(card_index)
+## Mouse hover off card
+func _on_focus_mouse_exited():
+	card_unfocused.emit(card_index)
+## Mouse click on card
+func _on_focus_pressed():
+	card_clicked.emit(card_index)

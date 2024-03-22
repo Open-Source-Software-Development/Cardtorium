@@ -5,6 +5,8 @@ class_name Player
 
 ## Emitted when the player finishes drawing their cards
 signal cards_drawn(cards: Array[Card])
+## Emitted when one or more cards are removed from the hand
+signal cards_removed(old_cards: Array[Card], new_cards: Array[Card])
 ## Emitted when the player clears fog
 signal fog_cleared(tiles: Array[Vector2i])
 ## Emitted when the player loses vision
@@ -13,7 +15,7 @@ signal fog_placed(tiles: Array[Vector2i])
 ## How many cities the player owns
 var cities: int
 ## How many cards a player can have in their hand
-var hand_size: int = 5
+var hand_size: int = 7
 ## How much territory the player owns
 var owned: int
 ## The player's local id. Is set by the game object
@@ -33,7 +35,7 @@ var deck: Array[Card]
 var hand: Array[Card]
 
 ## Creates a new player resource from scratch
-func _init(board_size: Vector2i, start_location: Vector2i):
+func _init(board_size: Vector2i, start_location: Vector2i, _deck: Array[Card]):
     randomize()
     discovered = []
     for x in range(board_size.x):
@@ -53,7 +55,7 @@ func _init(board_size: Vector2i, start_location: Vector2i):
             elif y >= board_size.y:
                 break
             discovered[x][y] = true
-
+    deck = _deck
 
 ## Called right before the player's turn begins
 func begin_turn():
@@ -71,20 +73,17 @@ func begin_turn():
     # Lets the renderer know that it can do its thing
     self.cards_drawn.emit(drawn)
 
-
 ## Clears the fog from an array of tiles
 func clear_fog(tiles: Array[Vector2i]):
     for tile in tiles:
         self.discovered[tile.x][tile.y] = true
     fog_cleared.emit(tiles)
 
-
 ## Puts the fog back (may be used for a spell in the future)
 func add_fog(tiles: Array[Vector2i]):
     for tile in tiles:
         self.discovered[tile.x][tile.y] = false
     fog_placed.emit(tiles)
-
 
 ## Shuffles a card into the back of the player's deck
 func shuffle_card(card: Card):
@@ -104,9 +103,12 @@ func shuffle_card(card: Card):
     # Places the card at the location
     self.deck.insert(pos, card)
 
-
 ## Removes the nth card from the player's hand and shuffles it back
 ## into the deck
 func remove_from_hand(index: int):
+    var old_hand: Array[Card] = []
+    for card in hand:
+        old_hand.append(card)
     var card: Card = self.hand.pop_at(index)
+    cards_removed.emit(old_hand, hand)
     shuffle_card(card)

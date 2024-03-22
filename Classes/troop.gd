@@ -7,19 +7,27 @@ class_name Troop
 var id: int = 0
 ## Whether or not the troop has moved
 var has_moved: bool = false
-## The base stats of the troop.
-## WARNING: Do not modify!
-var base_stats: Card
+## Whether or not the troop has attacked
+var has_atkd: bool = false
 ## Graph of tiles that the troop can move to.
-var move_graph
+var move_graph = null
 ## Stores the troop's attributes
 var attributes: Array[TroopAttribute] = []
-
+## Defense of the card
+var defense: int
+## Movement of the card
+var movement: int
 
 ## Initiallizes a troop object from a card.
-func _init(card: Card = null):
+func _init(_game: Game, card: Card=null):
+	self.game = _game
 	self.id = card.id
 	self.base_stats = card
+	attack = base_stats.attack
+	defense = base_stats.defense
+	movement = base_stats.movement
+	rng = base_stats.attack_range
+	health = base_stats.health
 	# Loads attributes
 	for attribute_id in self.base_stats.attributes:
 		# var attribute: TroopAttribute = load('res://Attributes/Troops/Logic/attribute_{0}.gd'.format({0:attribute_id})).new()
@@ -28,18 +36,17 @@ func _init(card: Card = null):
 		# attributes.append(attribute)
 		pass
 
-
 ## Helper function which returns all tiles within a certain
 ## radius of the center.
 func _get_surrounding(center: Vector2i, radius: int) -> Array[Vector2i]:
 	var output: Array[Vector2i] = []
-	for x_off in range(-radius, radius+1):
-		for y_off in range(-radius, radius+1):
+	for x_off in range( - radius, radius + 1):
+		for y_off in range( - radius, radius + 1):
+
 			if x_off == 0 and y_off == 0:
 				continue
 			output.append(center + Vector2i(x_off, y_off))
 	return output
-
 
 ## Builds a graph of the tiles that the unit can move to.
 func build_graph(x: int, y: int, board: Board):
@@ -96,7 +103,6 @@ func build_graph(x: int, y: int, board: Board):
 			frontier_data[to] = [new_strength, new_dist, new_path]
 	self.move_graph = graph
 
-
 ## Internal function which determines the cost of moving from a tile to a tile.[br][br]
 ##
 ## This is used in [method build_graph] to determine where a unit can move to. Attributes which
@@ -114,6 +120,10 @@ func build_graph(x: int, y: int, board: Board):
 ## -1 indicates that the unit cannot move to [param to]. Non-integer returns are allowed.
 func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board) -> float:
 	var dest_type: Board.Terrain = board.tiles[to.x][to.y]
+	# Check if the destination tile contains another troop, skip if it does
+	var unit_at_destination = board.units[to.x][to.y]
+	if unit_at_destination != null and unit_at_destination is Troop:
+		return - 1
 	# Checks if any attributes override the behavior of calc_move_cost
 	for attr in attributes:
 		var value = attr.calc_move_cost(strength, from, to, board)
@@ -121,13 +131,53 @@ func _calc_move_cost(strength: float, from: Vector2i, to: Vector2i, board: Board
 			return value
 	# Checks if the move is even discovered
 	if not board.players[self.owned_by].discovered[to.x][to.y]:
-		return -1
+		return - 1
 	# Checks terrain type
 	if dest_type == Board.Terrain.FOREST:
 		return 0
 	elif dest_type == Board.Terrain.MOUNTAIN:
 		return 0
 	elif dest_type == Board.Terrain.WATER:
-		return -1
+		return - 1
 	# TODO: Check if there is an enemy nearby to apply zone-of-control
 	return max(strength - 1, 0)
+
+
+
+## Called when the unit is attacked
+func being_attacked(attacker: Unit, atk: int, attack_force: float) -> int:
+	# Calculates your defense force
+	var def_force = self.defense * float(health)/float(base_stats.health)
+	# Damages the unit
+	var damage = floor((attack_force/(attack_force+def_force))*atk)
+	health -= damage
+	# If the troop is dead, then it dies
+	if health <= 0:
+		health = 0
+		game.remove_unit(self)
+		return 0
+	# Calculates counter damage
+	var counter_damage: int = floor((def_force/(attack_force+def_force))*defense)
+	return counter_damage
+
+
+## Attacks another unit
+func attack_unit(defender: Unit):
+	if has_atkd:
+		return
+	# DEBUG: Remove later
+	print('Before:')
+	print("Attacker: {0} HP".format({0:health}))
+	print("Defender: {0} HP".format({0:defender.health}))
+	print()
+	var atk_force  = attack * float(self.health)/float(base_stats.health)
+	health -= defender.being_attacked(self, attack, atk_force)
+	# If the troop is dead, then it dies
+	if health <= 0:
+		health = 0
+		game.remove_unit(self)
+	# DEBUG: Remove later
+	print('After:')
+	print("Attacker: {0} HP".format({0:health}))
+	print("Defender: {0} HP".format({0:defender.health}))
+	print()

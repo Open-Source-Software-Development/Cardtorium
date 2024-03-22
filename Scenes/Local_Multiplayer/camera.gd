@@ -7,7 +7,9 @@ var speed = 300
 var initial_mouse_pos = Vector2.ZERO
 var mouse_button_down = false
 var dragging = false
-var drag_threshold = 100 # must drag this many pixels to be considered a drag
+var drag_threshold = 30 # must drag this many pixels to be considered a drag
+signal selected_tile(Vector2)
+var card_placement_allowed = false
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -19,12 +21,7 @@ func _input(event):
 			if dragging:
 				dragging = false
 			else:
-				# Handle mouse click
-				var mouse_position = get_global_mouse_position()
-				var world_position = get_global_transform().affine_inverse().basis_xform_inv(mouse_position)
-				var tile_size = Vector2(64, 64)
-				var tile_coordinates = floor(world_position / tile_size)
-				print("coordinates:", tile_coordinates)
+				handle_click()
 
 	elif event is InputEventMouseMotion and mouse_button_down:
 		if initial_mouse_pos.distance_to(get_global_mouse_position()) > drag_threshold:
@@ -56,3 +53,21 @@ func _unhandled_key_input(event):
 
 func _physics_process(delta):
 	position += delta * vel
+
+func handle_click():
+	if not card_placement_allowed:
+		return
+	var mouse_position = get_global_mouse_position()
+	var world_position = get_global_transform().affine_inverse().basis_xform_inv(mouse_position)
+	var tile_size = Vector2(64, 64)
+	var tile_coordinates = floor(world_position / tile_size)
+
+	emit_signal("selected_tile", tile_coordinates)
+	
+## Can place cards when not over a card
+func _on_hand_renderer_mouse_entered():
+	card_placement_allowed = true
+
+## Can't place cards when over a card
+func _on_hand_renderer_mouse_exited():
+	card_placement_allowed = false

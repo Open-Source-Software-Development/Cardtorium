@@ -17,6 +17,10 @@ signal terrain_updated(changed: Array[Vector2i], terrain: Board.Terrain)
 signal troop_placed(troop: Troop, pos: Vector2i)
 ## Emitted when a player ends their turn.
 signal turn_ended(local_id: int)
+## Emitted when a troop is moved
+signal troop_moved(troop: Troop, path: Array)
+## Emitted when a unit is removed from the board.
+signal unit_removed(unit: Unit)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,9 +44,10 @@ func place_card(card: Card, x: int, y: int):
 	match(card.type):
 		# Places a troop card
 		Card.CardType.TROOP:
-			var troop: Troop = Troop.new(card)
+			var troop: Troop = Troop.new(self, card)
 			troop.owned_by = board.current_player
 			board.units[x][y] = troop
+			troop.pos = Vector2i(x, y)
 			troop_placed.emit(troop, Vector2i(x, y))
 
 
@@ -52,7 +57,6 @@ func place_from_hand(index: int, x: int, y: int):
 	var card: Card = player.hand[index]
 	player.remove_from_hand(index)
 	self.place_card(card, x, y)
-
 
 
 ## Goes to the next player's turn
@@ -68,9 +72,22 @@ func end_turn():
 	board.players[board.current_player].begin_turn()
 
 
-
 ## Moves a troop from one position to another.
 ## WARNING: If the move is invalid, then this function will throw
 ## an error.
-func move_troop(from: Vector2i, to: Vector2i):
-	pass
+func troop_move(troop: Troop, tile: Vector2i):
+	# Moves the unit
+	self.board.units[troop.pos.x][troop.pos.y] = null
+	self.board.units[tile.x][tile.y] = troop
+	# Sets the troop's position and stores its old position
+	var from = Vector2i(troop.pos.x, troop.pos.y)
+	troop.pos = tile
+	# Emits the move signal
+	var path: Array = troop.move_graph[tile]
+	troop_moved.emit(troop, path)
+
+
+## Removes a unit from the board
+func remove_unit(unit: Unit):
+	board.units[unit.pos.x][unit.pos.y] = null
+	unit_removed.emit(unit)
