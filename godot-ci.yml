@@ -1,10 +1,17 @@
 name: "godot-ci export"
-on: push
-
+on:
+  push:
+    branches:
+      - release
+env:
 env:
   GODOT_VERSION: 4.2.1
-  EXPORT_NAME: test-project
-  PROJECT_PATH: test-project
+  EXPORT_NAME: cardtorium
+  PROJECT_PATH: cardtorium
+  ITCHIO_GAME: "cardtorium"
+  ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
+  ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+
 
 jobs:
   export-windows:
@@ -84,11 +91,13 @@ jobs:
       - name: Install rsync 📚
         run: |
           apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+      # - name: Deploy to Itch.io 🎮
+      #   uses: 
+      #   with:
+      #     user: ${{ env.ITCHIO_USER }}
+      #     api-key: ${{ env.ITCHIO_API_KEY }}
+      #     game: "cardtorium"
+      #     source: "build/web"
 
   export-mac:
     name: Mac Export
