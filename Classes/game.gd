@@ -21,6 +21,8 @@ signal turn_ended(local_id: int)
 signal troop_moved(troop: Troop, path: Array)
 ## Emitted when a unit is removed from the board.
 signal unit_removed(unit: Unit)
+## Emitted right before (or maybe after) player's turn switches over
+signal render_topbar(turn: int, player: Player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +32,7 @@ func _ready():
 	var height = 11
 	board.setup(width, height, 2)
 	num_players = 2
-
+	render_topbar.emit(board.turns, board.players[board.current_player])
 
 ## Changes the terrain for an array of tiles
 func set_terrain(terrain: Board.Terrain, location: Array[Vector2i]):
@@ -69,6 +71,7 @@ func end_turn():
 		board.current_player = 0
 		board.turns += 1
 	# Sets next player up to begin their turn
+	render_topbar.emit(board.turns, board.current_player)
 	board.players[board.current_player].begin_turn()
 
 
