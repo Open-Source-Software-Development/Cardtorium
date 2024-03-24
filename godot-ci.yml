@@ -4,7 +4,6 @@ on:
     branches:
       - release
 env:
-env:
   GODOT_VERSION: 4.2.1
   EXPORT_NAME: cardtorium
   PROJECT_PATH: cardtorium
