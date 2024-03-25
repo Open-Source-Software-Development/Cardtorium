@@ -6,7 +6,7 @@ on:
 env:
   GODOT_VERSION: 4.2.1
   EXPORT_NAME: Cardtorium
-  PROJECT_PATH: Cardtorium
+  PROJECT_PATH: '.'
   # ITCHIO_GAME: "cardtorium"
   # ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
   # ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
