@@ -48,19 +48,13 @@ If you then still feel the need to ask a question and need clarification, we rec
 
 We will then take care of the issue as soon as possible.
 
+## Join the Community on Discord
+- https://discord.gg/E2e4JGVN
 <!--
 You might want to create a separate issue tag for questions and include it in this description. People should then tag their issues accordingly.
 
 Depending on how large the project is, you may want to outsource the questioning, e.g. to Stack Overflow or Gitter. You may add additional contact and information possibilities:
-- IRC
-- Slack
-- Gitter
-- Stack Overflow tag
-- Blog
-- FAQ
-- Roadmap
-- E-Mail List
-- Forum
+- Discord
 -->
 
 ## I Want To Contribute
@@ -134,10 +128,11 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/Open-S
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 ### Your First Code Contribution
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
-
--->
+- `git clone git@github.com:Open-Source-Software-Development/Cardtorium.git`
+- Install Godot for Windows: https://godotengine.org/download/windows/
+- Install Godot for MacOS: https://godotengine.org/download/macos/
+- Install Godot for Linux: https://godotengine.org/download/linux/
+  
 
 ### Improving The Documentation
 <!-- TODO
@@ -147,9 +142,30 @@ Updating, improving and correcting the documentation
 
 ## Styleguides
 ### Commit Messages
-<!-- TODO
+Semantic Commit Messages
+See how a minor change to your commit message style can make you a better programmer.
 
--->
+Format: <type>(<scope>): <subject>
+
+<scope> is optional
+
+Example
+feat: add hat wobble
+^--^  ^------------^
+|     |
+|     +-> Summary in present tense.
+|
++-------> Type: chore, docs, feat, fix, refactor, style, or test.
+More Examples:
+
+feat: (new feature for the user, not a new feature for build script)
+fix: (bug fix for the user, not a fix to a build script)
+docs: (changes to the documentation)
+style: (formatting, missing semi colons, etc; no production code change)
+refactor: (refactoring production code, eg. renaming a variable)
+test: (adding missing tests, refactoring tests; no production code change)
+chore: (updating grunt tasks etc; no production code change)
+
 
 ## Join The Project Team
 <!-- TODO -->
