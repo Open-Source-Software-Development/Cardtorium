@@ -87,6 +87,7 @@ func troop_move(troop: Troop, tile: Vector2i):
 	troop.pos = tile
 	# Emits the move signal
 	var path: Array = troop.move_graph[tile]
+	troop.clear_fog()
 	troop_moved.emit(troop, path)
 
 
