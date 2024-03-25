@@ -30,8 +30,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          cd $PROJECT_PATH
-          godot --export "Windows Desktop" $EXPORT_NAME.exe
+          godot --headless --verbose --export-release "Windows Desktop" $EXPORT_NAME.exe
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -56,8 +55,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          cd $PROJECT_PATH
-          godot --export "Linux/X11" $EXPORT_NAME.x86_64
+          godot --headless --verbose --export-release "Linux/X11" $EXPORT_NAME.x86_64
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -82,8 +80,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          cd $PROJECT_PATH
-          godot --export "Web" $EXPORT_NAME.html
+          godot --headless --verbose --export-release "Web" build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -117,8 +114,7 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          cd $PROJECT_PATH
-          godot --export "macOS" ../build/mac/$EXPORT_NAME.zip
+          godot --headless --verbose --export-release "macOS" ../build/mac/$EXPORT_NAME.zip
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
