@@ -5,11 +5,11 @@ on:
       - release
 env:
   GODOT_VERSION: 4.2.1
-  EXPORT_NAME: cardtorium
-  PROJECT_PATH: cardtorium
-  ITCHIO_GAME: "cardtorium"
-  ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
-  ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+  EXPORT_NAME: Cardtorium
+  PROJECT_PATH: Cardtorium
+  # ITCHIO_GAME: "cardtorium"
+  # ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
+  # ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
 
 
 jobs:
