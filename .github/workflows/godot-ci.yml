@@ -3,10 +3,13 @@ on:
   push:
     branches:
       - release
+
+permissions:
+  contents: write
 env:
   GODOT_VERSION: 4.2.1
   EXPORT_NAME: Cardtorium
-  PROJECT_PATH: '.'
+  PROJECT_PATH: .
   # ITCHIO_GAME: "cardtorium"
   # ITCHIO_USER: ${{ secrets.ITCHIO_USER }}
   # ITCHIO_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
@@ -30,7 +33,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-release "Windows Desktop" $EXPORT_NAME.exe
+          godot --headless --verbose --export-release "Windows Desktop" build/windows/$EXPORT_NAME.exe
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -55,7 +58,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          godot --headless --verbose --export-release "Linux/X11" $EXPORT_NAME.x86_64
+          godot --headless --verbose --export-release "Linux/X11" /build/linux/$EXPORT_NAME.x86_64
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -114,7 +117,7 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          godot --headless --verbose --export-release "macOS" ../build/mac/$EXPORT_NAME.zip
+          godot --headless --verbose --export-release "macOS" build/mac/$EXPORT_NAME.zip
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
