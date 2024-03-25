@@ -8,12 +8,13 @@
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/camera.gd" id="8_gitxl"]
 [ext_resource type="Texture2D" uid="uid://b52v80k5bqxl5" path="res://Assets/Tiles/opaque-outline.png" id="9_387iw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/HandRenderer.gd" id="9_bv7jf"]
-[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/outline.png" id="10_j1qfw"]
+[ext_resource type="Texture2D" uid="uid://bgtd17unyo5em" path="res://Assets/UI/outline.png" id="10_j1qfw"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/MoveRender.gd" id="11_0mh2y"]
 [ext_resource type="Texture2D" uid="uid://bfwcvluxqghk2" path="res://Assets/Tiles/thick-outline.png" id="11_bs2bu"]
 [ext_resource type="Script" path="res://Scenes/Local_Multiplayer/FogRenderer.gd" id="11_i2gk8"]
 
 [sub_resource type="TileSet" id="TileSet_m82yt"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh2ia"]
 texture = ExtResource("7_gkb7q")
 texture_region_size = Vector2i(64, 64)
