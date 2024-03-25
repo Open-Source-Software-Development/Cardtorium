@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://begj5ukkyuxiu"
-path="res://.godot/imported/thick-outline.png-d1ba937882bce12dabe25b0974e82a80.ctex"
+uid="uid://bgtd17unyo5em"
+path="res://.godot/imported/outline.png-5e55e979e7778d014dda71fa493b0ea5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Local_Multiplayer/thick-outline.png"
-dest_files=["res://.godot/imported/thick-outline.png-d1ba937882bce12dabe25b0974e82a80.ctex"]
+source_file="res://Assets/UI/outline.png"
+dest_files=["res://.godot/imported/outline.png-5e55e979e7778d014dda71fa493b0ea5.ctex"]
 
 [params]
 
