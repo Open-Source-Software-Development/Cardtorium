@@ -41,6 +41,10 @@ func on_selected_tile(pos: Vector2i):
 	selected_tile = pos
 	check_and_place_card()
 
+	# Tester code for topbar until we have actual things that change it
+	#game.board.players[game.board.current_player].resources -= 1
+	#game.render_topbar.emit(game.board.turns, game.board.players[game.board.current_player])
+
 	var tile_content = game.board.units[selected_tile.x][selected_tile.y]
 	if tile_content != null and tile_content is Troop and active_unit == null:
 		var troop = tile_content as Troop

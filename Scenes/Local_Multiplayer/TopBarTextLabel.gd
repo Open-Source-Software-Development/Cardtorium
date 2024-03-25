@@ -4,7 +4,7 @@ extends RichTextLabel
 @onready var game: Game = $/root/LocalMultiplayer/Game
 
 func _ready():
-	game.render_topbar.connect(self._on_game_render_topbar)
+	pass
 
 # Source Code for this found at:
 		# https://docs.godotengine.org/en/stable/tutorials/ui/bbcode_in_richtextlabel.html
